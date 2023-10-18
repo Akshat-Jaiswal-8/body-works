@@ -1,15 +1,14 @@
-import {Link } from "react-router-dom"
 function Navbar()   {
     return (
         <>
         <div className="navbar flex justify-between px-10 py-4 border-b border-gray-700 border-opacity-100 border-dotted">
             <div className="flex items-center cursor-pointer ">
-                <img src={"/logo.svg"} className="h-10 rounded-lg" alt={"logo"}/>
-                <a className="text-xl text-gray-600 animate-bounce hover:text-white font-bold">BodyWorks</a>
+                <img src={"./logo.jpg"} className="h-8 rounded-lg mr-2" alt={"logo"}/>
+                <a className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold transition-all duration-300 ease-in-out">BodyWorks</a>
             </div>
             <div className="flex items-center">
-                <Link className="text-white font-poppins m-3" to={"/home"} >Home</Link>
-                <Link className="text-white font-poppins m-3" to={"/about"}>About</Link>
+                <div className="text-gray-300 font-semibold cursor-pointer font-poppins hover:text-white transition-all duration-300 ease-in-out m-3">Home</div>
+                <div className="text-gray-300 font-semibold cursor-pointer font-poppins hover:text-white transition-all duration-300 ease-in-out m-3">About</div>
             </div>
         </div>
         </>
