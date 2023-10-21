@@ -1,4 +1,4 @@
-export const Error = () => {
+const Error = () => {
   return (
     <>
       <section className="relative z-10 py-[120px]">
@@ -38,3 +38,4 @@ export const Error = () => {
   );
 };
 
+export default Error;

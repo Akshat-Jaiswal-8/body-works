@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export interface IExercises {
+interface IExercises {
   name: string;
   title: string;
   target: string;
@@ -16,8 +16,12 @@ export interface IExercises {
   keywords: string[];
 }
 
-export const getExercises = async ()  => {
+const getExercises = async ()  => {
   const exercises  = await axios.get("https://body-works.vercel.app/api/exercises");
   const allExercises = exercises.data.data;
   return allExercises;
 }
+
+export { getExercises };
+export type { IExercises };
+

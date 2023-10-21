@@ -1,7 +1,7 @@
-import { useExercises } from "../features/Exercises/useExercises.tsx";
+import useExercises  from "../features/Exercises/useExercises.tsx";
 import Spinner from "../ui/Spinner.tsx";
-import { Error } from "./Error.tsx";
-import { IExercises } from "../services/apiExercises.ts";
+import Error  from "./Error.tsx";
+import  {IExercises } from "../services/apiExercises.ts";
 
 function Exercises() {
 
