@@ -7,7 +7,6 @@ import BodyPartCard from "./BodyPartCard.tsx";
 function MainBodyPart() {
   const { bodyParts } = useBodyPart();
 
-  console.log(bodyParts);
   const [searchQuery, setSearchQuery] = useState("");
 
   return (

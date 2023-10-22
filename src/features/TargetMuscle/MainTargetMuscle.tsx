@@ -6,8 +6,6 @@ import { ITargetMuscle } from "../../services/apiTargetMuscle.ts";
 
 function MainTargetMuscle() {
   const { targetMuscle } = useTargetMuscle();
-
-  console.log(targetMuscle);
   const [searchQuery, setSearchQuery] = useState("");
 
   return (

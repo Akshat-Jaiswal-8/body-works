@@ -7,7 +7,6 @@ import EquipmentCard from "./EquipmentCard.tsx";
 function MainEquipments() {
   const { equipments } = useEquipments();
 
-  console.log(equipments);
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
