@@ -5,7 +5,7 @@ import Navbar from "../ui/Navbar.tsx";
 import Sidebar from "../ui/Sidebar.tsx";
 import MainExercises from "../features/Exercises/MainExercises.tsx";
 
-function Exercises() {
+function BodyParts() {
   const { isLoading, error } = useExercises();
 
   if (isLoading) return <Spinner />;
@@ -21,4 +21,4 @@ function Exercises() {
     </>
   );
 }
-export default Exercises;
+export default BodyParts;

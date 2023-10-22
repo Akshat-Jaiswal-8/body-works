@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getExercises } from "../../services/apiExercises.ts";
 
-const useExercises = () => {
+export const useExercises = () => {
   const {
     isLoading,
     data: exercises,
@@ -10,8 +10,5 @@ const useExercises = () => {
     queryKey: ["exercises"],
     queryFn: getExercises,
   });
-
-  return { isLoading, exercises , error };
-}
-
-export default useExercises;
+  return { isLoading, exercises, error };
+};

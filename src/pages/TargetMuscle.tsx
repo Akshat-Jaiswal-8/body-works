@@ -1,12 +1,12 @@
-import { useExercises } from "../features/Exercises/useExercises.tsx";
 import Spinner from "../ui/Spinner.tsx";
 import Error from "./Error.tsx";
 import Navbar from "../ui/Navbar.tsx";
 import Sidebar from "../ui/Sidebar.tsx";
-import MainExercises from "../features/Exercises/MainExercises.tsx";
+import MainTargetMuscle from "../features/TargetMuscle/MainTargetMuscle.tsx";
+import { useTargetMuscle } from "../features/TargetMuscle/useTargetMuscle.tsx";
 
-function Exercises() {
-  const { isLoading, error } = useExercises();
+function TargetMuscle() {
+  const { isLoading, error } = useTargetMuscle();
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -16,9 +16,9 @@ function Exercises() {
       <Navbar />
       <div className="grid grid-cols-5 h-[87vh]">
         <Sidebar />
-        <MainExercises />
+        <MainTargetMuscle />
       </div>
     </>
   );
 }
-export default Exercises;
+export default TargetMuscle;
