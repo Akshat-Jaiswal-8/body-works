@@ -26,6 +26,7 @@ function MainExercises() {
         {exercises.map((exercise: IExercise) => {
           return (
             <ExerciseCard
+              id={exercise.id}
               key={exercise.id}
               image={exercise.images[1]}
               title={exercise.title}

@@ -5,11 +5,7 @@ function Navbar() {
     <>
       <div className="flex justify-between px-10 py-4 border-b border-gray-700">
         <div className="flex items-center animate-pulse cursor-pointer ">
-          <img
-            src={"./logo.jpg"}
-            className="h-8 rounded-lg mr-2"
-            alt={"logo"}
-          />
+          <img src={"/logo.jpg"} className="h-8 rounded-lg mr-2" alt={"logo"} />
           <a className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold font-poppins transition-all duration-300 ease-in-out">
             Works
           </a>

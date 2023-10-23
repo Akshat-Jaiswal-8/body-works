@@ -1,7 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import { useBodyPart } from "./useBodyPart.tsx";
-import { IBodyPart } from "../../services/apiBodyPart.tsx";
+import { IBodyPart } from "../../services/apiBodyPart.ts";
 import BodyPartCard from "./BodyPartCard.tsx";
 
 function MainBodyPart() {

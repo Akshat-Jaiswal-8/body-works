@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getBodyPart } from "../../services/apiBodyPart.tsx";
+import { getBodyPart } from "../../services/apiBodyPart.ts";
 
 export const useBodyPart = () => {
   const {
