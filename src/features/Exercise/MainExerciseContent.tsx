@@ -1,7 +1,8 @@
 import ExerciseHeaders from "./ExerciseHeaders.tsx";
 import ExerciseContent from "./ExerciseContent.tsx";
 import { useParams } from "react-router-dom";
-import { useExercise } from "../Exercise/useExercise.tsx";
+import { useExercise } from "./useExercise.tsx";
+import ReactPlayer from "react-player";
 
 function MainExerciseContent() {
   const { exerciseId } = useParams();
@@ -28,6 +29,8 @@ function MainExerciseContent() {
   const commonMistakesIndex: number | undefined = commonMistakesMatch?.index;
   const safetyPrecautionsIndex: number | undefined =
     safetyPrecautionsMatch?.index;
+
+  const videoUrl: string = `https://www.youtube.com/watch?v=`;
 
   return (
     <>
@@ -63,6 +66,39 @@ function MainExerciseContent() {
               src={exercise.gifUrl}
             ></img>
           </div>
+        </div>
+        <h1 className="text-gray-400 font-semibold text-xl ml-16 px-7">
+          Reference Images
+          <span className="ml-2">:</span>
+        </h1>
+        <div className="grid grid-cols-2 justify-center mt-8 mb-16">
+          {exercise.images.map((image: string) => (
+            <div className="text-left mx-16 my-12 px-6">
+              <img
+                src={image}
+                className="h-80 w-full rounded-3xl"
+                alt={"exercise image"}
+              />
+            </div>
+          ))}
+        </div>
+        <h1 className="text-gray-400 font-semibold text-xl ml-16 px-7">
+          Reference Videos
+          <span className="ml-2">:</span>
+        </h1>
+        <div className="grid grid-cols-2 gap-16 justify-center mt-8 mb-16">
+          {exercise.videos.map((video: string) => (
+            <div className="text-left mx-16 my-12 px-6">
+              <ReactPlayer
+                volume={100}
+                width="560"
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                url={`${videoUrl}${video.slice(video.match("=")?.index + 1)}`}
+                controls
+              ></ReactPlayer>
+            </div>
+          ))}
         </div>
         <div className="text-left mx-16 px-6">
           <ExerciseContent

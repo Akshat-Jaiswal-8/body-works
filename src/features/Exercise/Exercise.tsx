@@ -4,7 +4,7 @@ import Spinner from "../../ui/Spinner.tsx";
 import Error from "../../pages/Error.tsx";
 import Navbar from "../../ui/Navbar.tsx";
 import Sidebar from "../../ui/Sidebar.tsx";
-import MainExerciseContent from "../Exercises/MainExerciseContent.tsx";
+import MainExerciseContent from "./MainExerciseContent.tsx";
 
 const Exercise = () => {
   const { exerciseId } = useParams();

@@ -10,7 +10,7 @@ const ExerciseHeaders = ({ title, content }: IExerciseHeadersProps) => {
         {title}
         <span className="ml-2">:</span>
       </span>
-      <span className="font-rubik">
+      <span className="font-rubik ">
         {content.charAt(0).toUpperCase() + content.slice(1)}
       </span>
     </h2>
