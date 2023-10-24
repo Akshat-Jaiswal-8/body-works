@@ -30,8 +30,6 @@ function MainExerciseContent() {
   const safetyPrecautionsIndex: number | undefined =
     safetyPrecautionsMatch?.index;
 
-  const videoUrl: string = `https://www.youtube.com/watch?v=`;
-
   return (
     <>
       <div className="text-white col-span-4 w-full">
@@ -75,6 +73,7 @@ function MainExerciseContent() {
           {exercise.images.map((image: string) => (
             <div className="text-left mx-16 my-12 px-6">
               <img
+                key={image}
                 src={image}
                 className="h-80 w-full rounded-3xl"
                 alt={"exercise image"}
@@ -90,11 +89,10 @@ function MainExerciseContent() {
           {exercise.videos.map((video: string) => (
             <div className="text-left mx-16 my-12 px-6">
               <ReactPlayer
+                key={video}
                 volume={100}
                 width="560"
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                url={`${videoUrl}${video.slice(video.match("=")?.index + 1)}`}
+                url={video}
                 controls
               ></ReactPlayer>
             </div>
