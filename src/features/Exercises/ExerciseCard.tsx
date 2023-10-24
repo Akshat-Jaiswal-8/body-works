@@ -14,9 +14,7 @@ const ExerciseCard = (props: IProps) => {
   const id: string = props.id;
 
   const match: RegExpMatchArray | null = blog.match("Description");
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const index: number = match.index;
+  const index: number | undefined = match?.index;
 
   return (
     <>
@@ -30,7 +28,7 @@ const ExerciseCard = (props: IProps) => {
               {title}
             </h2>
             <p className="text-gray-400 h-fit mb-6">
-              {blog.slice(index + 11, 150) + "..."}
+              {index && blog.slice(index + 11, 150) + "..."}
             </p>
             <a
               href={`/exercises/${id}`}
