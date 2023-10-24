@@ -4,7 +4,6 @@ interface IExerciseHeadersProps {
 }
 
 const ExerciseHeaders = ({ title, content }: IExerciseHeadersProps) => {
-  console.log(content);
   return (
     <h2 className="text-gray-200 text-xl">
       <span className="text-gray-400 font-semibold mr-2 inline-flex items-center">
