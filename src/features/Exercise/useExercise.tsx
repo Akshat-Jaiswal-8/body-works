@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { getExercise } from "../../services/apiExercise.ts";
 
-export const useExercise = (props: string) => {
-  const exerciseId: string = props;
+export const useExercise = (props: string | undefined) => {
+  const exerciseId: string | undefined = props;
   const {
     isLoading,
     data: exercise,

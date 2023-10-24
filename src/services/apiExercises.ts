@@ -15,9 +15,9 @@ interface IExercise {
   keywords: string[];
 }
 
-const getExercises = async () => {
+const getExercises = async (limit: number, page: number) => {
   const exercises = await axios.get(
-    "https://body-works.vercel.app/api/exercises?limit=9",
+    `https://body-works.vercel.app/api/exercises?limit=${limit}&page=${page}`,
   );
   const allExercises = exercises.data.data;
   return allExercises;

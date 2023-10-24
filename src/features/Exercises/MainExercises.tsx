@@ -5,8 +5,9 @@ import { useState } from "react";
 import { useExercises } from "./useExercises.tsx";
 
 function MainExercises() {
-  const { exercises } = useExercises();
-
+  const limit = 9;
+  const page = 1;
+  const { exercises } = useExercises(limit, page);
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
