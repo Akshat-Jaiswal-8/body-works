@@ -33,12 +33,12 @@ function MainExerciseContent() {
   return (
     <>
       <div className="text-white col-span-4 w-full">
-        <h1 className="text-white text-left text-4xl ml-16 mt-12 px-6 font-bold font-montserrat">
-          {exercise.title}
-        </h1>
-        <div className="grid grid-cols-2 justify-center mt-16 mb-16">
-          <div className="col-span-1 text-left ml-16 py-12 px-6">
+        <div className="grid grid-cols-2 justify-center mt-16 mb-28">
+          <div className="col-span-1 text-left ml-16  py-12 px-6">
             <div className="flex flex-col gap-8">
+              <h1 className="text-white text-left text-5xl font-bold font-montserrat">
+                {exercise.title}
+              </h1>
               <ExerciseHeaders
                 title={"Target Muscle"}
                 content={exercise.target}
@@ -57,7 +57,7 @@ function MainExerciseContent() {
               />
             </div>
           </div>
-          <div className="col-span-1 mx-auto">
+          <div className="col-span-1 items-center my-auto mx-auto">
             <img
               alt="exercise gif"
               className=" rounded-3xl "
@@ -69,7 +69,7 @@ function MainExerciseContent() {
           Reference Images
           <span className="ml-2">:</span>
         </h1>
-        <div className="grid grid-cols-2 justify-center mt-8 mb-16">
+        <div className="grid grid-cols-2 justify-center mb-16">
           {exercise.images.map((image: string) => (
             <div className="text-left mx-16 my-12 px-6">
               <img
@@ -85,7 +85,7 @@ function MainExerciseContent() {
           Reference Videos
           <span className="ml-2">:</span>
         </h1>
-        <div className="grid grid-cols-2 gap-16 justify-center mt-8 mb-16">
+        <div className="grid grid-cols-2 justify-center mt-8 mb-16">
           {exercise.videos.map((video: string) => (
             <div className="text-left mx-16 my-12 px-6">
               <ReactPlayer
@@ -129,6 +129,10 @@ function MainExerciseContent() {
               safetyPrecautionsIndex ? safetyPrecautionsIndex + 20 : undefined
             }
           />
+          {/*<div*/}
+          {/*  className="[all-unset]"*/}
+          {/*  dangerouslySetInnerHTML={{ __html: markdownToHtml(exercise.blog) }}*/}
+          {/*></div>*/}
         </div>
       </div>
     </>
