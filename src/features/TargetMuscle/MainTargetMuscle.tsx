@@ -27,6 +27,7 @@ function MainTargetMuscle() {
             <TargetMuscleCard
               key={targetMuscle.targetMuscle}
               name={targetMuscle.targetMuscle}
+              image={targetMuscle.imageUrl}
             />
           );
         })}

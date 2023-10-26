@@ -28,6 +28,7 @@ function MainEquipments() {
             <EquipmentCard
               key={equipment.equipment}
               name={equipment.equipment}
+              image={equipment.imageUrl}
             />
           );
         })}

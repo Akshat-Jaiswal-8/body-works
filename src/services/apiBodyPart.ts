@@ -2,6 +2,7 @@ import axios from "axios";
 
 export interface IBodyPart {
   bodyPart: string;
+  imageUrl: string;
 }
 
 export const getBodyPart = async () => {

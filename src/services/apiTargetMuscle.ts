@@ -2,6 +2,7 @@ import axios from "axios";
 
 export interface ITargetMuscle {
   targetMuscle: string;
+  imageUrl: string;
 }
 
 export const getTargetMuscle = async () => {

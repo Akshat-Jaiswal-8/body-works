@@ -2,6 +2,7 @@ import axios from "axios";
 
 export interface IEquipments {
   equipment: string;
+  imageUrl: string;
 }
 
 export const getEquipments = async () => {
