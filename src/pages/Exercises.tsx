@@ -14,7 +14,7 @@ function Exercises() {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-5 h-[87vh]">
+      <div className="bg-[#FFFBF5] dark:bg-gray-950 grid grid-cols-5 h-full">
         <Sidebar />
         <MainExercises />
       </div>

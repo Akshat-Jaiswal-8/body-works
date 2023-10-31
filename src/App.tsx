@@ -8,7 +8,14 @@ import Equipments from "./pages/Equipments.tsx";
 import TargetMuscle from "./pages/TargetMuscle.tsx";
 import BodyParts from "./pages/BodyParts.tsx";
 import Exercise from "./features/Exercise/Exercise.tsx";
-
+import Login from "./ui/Login.tsx";
+import Register from "./ui/Register.tsx";
+import {
+  ClerkProvider,
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -17,21 +24,90 @@ function App() {
       },
     },
   });
+  if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key");
+  }
+  const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
 
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/exercises" element={<Exercises />} />
-          <Route path="/equipments" element={<Equipments />} />
-          <Route path="/target-muscle" element={<TargetMuscle />} />
-          <Route path="/body-parts" element={<BodyParts />} />
-          <Route path="/exercises/:exerciseId" element={<Exercise />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <ClerkProvider publishableKey={clerkPubKey}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/*" element={<Login />} />
+            <Route path="/sign-in" element={<Login />} />
+            <Route path="/sign-up" element={<Register />} />
+            <Route
+              path="/exercises"
+              element={
+                <>
+                  <SignedIn>
+                    <Exercises />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path="/equipments"
+              element={
+                <>
+                  <SignedIn>
+                    <Equipments />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path="/target-muscle"
+              element={
+                <>
+                  <SignedIn>
+                    <TargetMuscle />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path="/body-parts"
+              element={
+                <>
+                  <SignedIn>
+                    <BodyParts />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path="/exercises/:exerciseId"
+              element={
+                <>
+                  <SignedIn>
+                    <Exercise />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ClerkProvider>
     </QueryClientProvider>
   );
 }

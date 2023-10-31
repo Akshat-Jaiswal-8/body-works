@@ -6,6 +6,9 @@ html{
   scroll-behavior: smooth;
 }
 
+body{
+  @apply dark:bg-black
+}
 
 body {
   height: 100%;
@@ -15,5 +18,4 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
 }
