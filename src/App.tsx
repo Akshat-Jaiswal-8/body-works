@@ -24,7 +24,6 @@ function App() {
       },
     },
   });
-  console.log(import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY);
   if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key");
   }
