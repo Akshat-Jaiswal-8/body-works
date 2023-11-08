@@ -10,6 +10,10 @@ body{
   @apply dark:bg-black
 }
 
+:root {
+  --bg-primary-card-color: #F9B572;
+}
+
 body {
   height: 100%;
   font-family: 'Poppins' , 'sans-serif';

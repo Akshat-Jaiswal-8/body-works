@@ -1,21 +1,28 @@
-import Hero from "./pages/Hero.tsx";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageNotFound from "./pages/PageNotFound.tsx";
-import Exercises from "./pages/Exercises.tsx";
-import Equipments from "./pages/Equipments.tsx";
-import TargetMuscle from "./pages/TargetMuscle.tsx";
-import BodyParts from "./pages/BodyParts.tsx";
-import Exercise from "./features/Exercise/Exercise.tsx";
-import Login from "./ui/Login.tsx";
-import Register from "./ui/Register.tsx";
+import Hero from './pages/Hero.tsx';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import PageNotFound from './pages/PageNotFound.tsx';
+import Exercises from './pages/Exercises.tsx';
+import Equipments from './pages/Equipments.tsx';
+import TargetMuscle from './pages/TargetMuscle.tsx';
+import BodyParts from './pages/BodyParts.tsx';
+import Exercise from './features/Exercise/Exercise.tsx';
+import Login from './ui/Login.tsx';
+import Register from './ui/Register.tsx';
 import {
   ClerkProvider,
   RedirectToSignIn,
   SignedIn,
   SignedOut,
-} from "@clerk/clerk-react";
+} from '@clerk/clerk-react';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -24,23 +31,47 @@ function App() {
       },
     },
   });
-  if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
-    throw new Error("Missing Publishable Key");
+  if (
+    !import.meta.env
+      .VITE_REACT_APP_CLERK_PUBLISHABLE_KEY
+  ) {
+    throw new Error(
+      'Missing Publishable Key',
+    );
   }
-  const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+  const clerkPubKey = import.meta.env
+    .VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <ClerkProvider publishableKey={clerkPubKey}>
+    <QueryClientProvider
+      client={queryClient}
+    >
+      <ReactQueryDevtools
+        initialIsOpen={false}
+      />
+      <ClerkProvider
+        publishableKey={clerkPubKey}
+      >
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/*" element={<Login />} />
-            <Route path="/sign-in" element={<Login />} />
-            <Route path="/sign-up" element={<Register />} />
             <Route
-              path="/exercises"
+              path='/'
+              element={<Hero />}
+            />
+            <Route
+              path='/*'
+              element={<Login />}
+            />
+            <Route
+              path='/sign-in'
+              element={<Login />}
+            />
+            <Route
+              path='/sign-up'
+              element={<Register />}
+            />
+            <Route
+              path='/exercises'
               element={
                 <>
                   <SignedIn>
@@ -53,7 +84,7 @@ function App() {
               }
             />
             <Route
-              path="/equipments"
+              path='/equipments'
               element={
                 <>
                   <SignedIn>
@@ -66,7 +97,7 @@ function App() {
               }
             />
             <Route
-              path="/target-muscle"
+              path='/target-muscle'
               element={
                 <>
                   <SignedIn>
@@ -79,7 +110,7 @@ function App() {
               }
             />
             <Route
-              path="/body-parts"
+              path='/body-parts'
               element={
                 <>
                   <SignedIn>
@@ -92,7 +123,7 @@ function App() {
               }
             />
             <Route
-              path="/exercises/:exerciseId"
+              path='/exercises/:exerciseId'
               element={
                 <>
                   <SignedIn>
@@ -104,7 +135,10 @@ function App() {
                 </>
               }
             />
-            <Route path="*" element={<PageNotFound />} />
+            <Route
+              path='*'
+              element={<PageNotFound />}
+            />
           </Routes>
         </BrowserRouter>
       </ClerkProvider>
