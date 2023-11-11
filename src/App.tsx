@@ -10,6 +10,7 @@ import BodyParts from './pages/BodyParts.tsx';
 import Exercise from './features/Exercise/Exercise.tsx';
 import Login from './ui/Login.tsx';
 import Register from './ui/Register.tsx';
+import Routines from './features/routines/routines.tsx';
 import {
   ClerkProvider,
   RedirectToSignIn,
@@ -111,6 +112,19 @@ function App() {
                 <>
                   <SignedIn>
                     <RoutineCategory />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path='/routines/:routineName'
+              element={
+                <>
+                  <SignedIn>
+                    <Routines />
                   </SignedIn>
                   <SignedOut>
                     <RedirectToSignIn />

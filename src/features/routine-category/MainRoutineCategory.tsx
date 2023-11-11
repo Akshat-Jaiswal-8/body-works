@@ -14,8 +14,8 @@ function MainRoutineCategory() {
           return (
             <RoutineCategoryCard
               key={routineCategory.title}
-              name={routineCategory.title}
-              image={routineCategory.imageUrl}
+              title={routineCategory.title}
+              imageUrl={routineCategory.imageUrl}
             />
           );
         })}

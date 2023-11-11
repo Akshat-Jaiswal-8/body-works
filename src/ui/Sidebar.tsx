@@ -4,9 +4,15 @@ import { IoBody } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 function Sidebar(): JSX.Element {
+  const theme = document.querySelector('html')?.getAttribute('class');
+  console.log(theme);
   return (
     <aside className='px-8 py-6 bg-[#F7EFE5] dark:bg-black gap-3 col-span-1 flex flex-col border-amber-700 border-dotted dark:border-gray-700 border-r'>
-      <img src='/sidebar_light.jpg' className='rounded-full' alt='logo' />
+      {theme === 'dark' ? (
+        <img src='/sidebar_dark.jpg' className='rounded-full' alt='logo' />
+      ) : (
+        <img src='/sidebar_light.jpg' className='rounded-full' alt='logo' />
+      )}
       <nav className='block'>
         <ul className='cursor-pointer flex flex-col gap-6 items-center'>
           <li className='w-full group'>
