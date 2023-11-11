@@ -1,21 +1,33 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { Link } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
 import Spinner from './Spinner.tsx';
+import { useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 
 function Navbar() {
-  const { isSignedIn, isLoaded } =
-    useUser();
+  useState('light');
+
+  const { isSignedIn, isLoaded }: boolean | undefined = useUser();
   if (!isLoaded) <Spinner />;
+
+  const theme: string | null = window.localStorage?.getItem('theme');
+  const toggleTheme = (): void => {
+    if (theme === 'dark') {
+      document.querySelector('html')?.setAttribute('class', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.querySelector('html')?.setAttribute('class', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  };
 
   return (
     <>
       <div className='flex bg-[#F7EFE5] dark:bg-black justify-between px-10 py-4 dark:border-gray-700 border-b border-amber-700 border-dotted shadow-indigo-500/40'>
         <div className='flex items-center animate-pulse cursor-pointer '>
-          <img
-            src={'/logo.jpg'}
-            className='h-8 rounded-lg mr-2'
-            alt={'logo'}
-          />
+          <img src={'/logo.jpg'} className='h-8 rounded-lg mr-2' alt={'logo'} />
           <a className='text-xl bg-clip-text text-transparent bg-gradient-to-r dark:bg-gradient-to-r dark:from-pink-500 dark:to-violet-500 from-amber-600 to-amber-500 font-bold font-poppins transition-all duration-300 ease-in-out'>
             Works
           </a>
@@ -64,6 +76,18 @@ function Navbar() {
           </div>
         )}
         {isSignedIn}
+        <div>
+          <button
+            onClick={toggleTheme}
+            className='text-white cursor-pointer dark:bg-black hover:text-pink-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition-all duration-300'
+          >
+            {theme === 'dark' ? (
+              <Sun color='#ffffff' className='hover:text-pink-500' />
+            ) : (
+              <Moon color='#ff9500' />
+            )}
+          </button>
+        </div>
       </div>
     </>
   );

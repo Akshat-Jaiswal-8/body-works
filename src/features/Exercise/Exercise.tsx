@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
-import { useExercise } from "./useExercise.tsx";
-import Spinner from "../../ui/Spinner.tsx";
-import Error from "../../pages/Error.tsx";
-import Navbar from "../../ui/Navbar.tsx";
-import Sidebar from "../../ui/Sidebar.tsx";
-import MainExerciseContent from "./MainExerciseContent.tsx";
+import { useParams } from 'react-router-dom';
+import { useExercise } from './useExercise.tsx';
+import Spinner from '../../ui/Spinner.tsx';
+import Error from '../../pages/Error.tsx';
+import Navbar from '../../ui/Navbar.tsx';
+import Sidebar from '../../ui/Sidebar.tsx';
+import MainExerciseContent from './MainExerciseContent.tsx';
 
 const Exercise = () => {
   const { exerciseId } = useParams();
-  const { isLoading, error } = useExercise(exerciseId);
+  const { isLoading, error } =
+    useExercise(exerciseId);
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -16,7 +17,7 @@ const Exercise = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-5 h-[87vh]">
+      <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
         <MainExerciseContent />
       </div>

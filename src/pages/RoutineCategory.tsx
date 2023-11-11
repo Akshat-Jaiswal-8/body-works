@@ -2,11 +2,11 @@ import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
 import Navbar from '../ui/Navbar.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
-import { useEquipments } from '../features/Equipments/useEquipments.tsx';
-import MainEquipments from '../features/Equipments/MainEquipments.tsx';
+import MainRoutineCategory from '../features/routine-category/MainRoutineCategory.tsx';
+import { useRoutines } from '../features/routine-category/useRoutines.tsx';
 
-function Equipments() {
-  const { isLoading, error } = useEquipments();
+function RoutineCategory() {
+  const { isLoading, error } = useRoutines();
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -16,9 +16,9 @@ function Equipments() {
       <Navbar />
       <div className='grid grid-cols-5 h-[87vh] '>
         <Sidebar />
-        <MainEquipments />
+        <MainRoutineCategory />
       </div>
     </>
   );
 }
-export default Equipments;
+export default RoutineCategory;

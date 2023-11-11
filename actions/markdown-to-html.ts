@@ -5,22 +5,10 @@ import 'tailwindcss/tailwind.css';
 
 const rules = [
   //header rules
-  [
-    /#{6}\s?([^\n]+)/g,
-    "<h6 style='font-size: 5px'>$1</h6>",
-  ],
-  [
-    /#{5}\s?([^\n]+)/g,
-    "<h5 style='font-size: 10px'>$1</h5>",
-  ],
-  [
-    /#{4}\s?([^\n]+)/g,
-    "<h4 style='font-size: 20px'>$1</h4>",
-  ],
-  [
-    /#{3}\s?([^\n]+)/g,
-    "<h3 style='font-size: 30px'>$1</h3>",
-  ],
+  [/#{6}\s?([^\n]+)/g, "<h6 style='font-size: 5px'>$1</h6>"],
+  [/#{5}\s?([^\n]+)/g, "<h5 style='font-size: 10px'>$1</h5>"],
+  [/#{4}\s?([^\n]+)/g, "<h4 style='font-size: 20px'>$1</h4>"],
+  [/#{3}\s?([^\n]+)/g, "<h3 style='font-size: 30px'>$1</h3>"],
   [
     /#{2}\s?([^\n]+)/g,
     "<h2 style='font-size: 1.125rem;  line-height: 1.625;'>$1</h2>",
@@ -51,14 +39,8 @@ const rules = [
   ],
 
   //Lists
-  [
-    /([^\n]+)(\+)([^\n]+)/g,
-    '<ul><li>$3</li></ul>',
-  ],
-  [
-    /([^\n]+)(\*)([^\n]+)/g,
-    '<ul><li>$3</li></ul>',
-  ],
+  [/([^\n]+)(\+)([^\n]+)/g, '<ul><li>$3</li></ul>'],
+  [/([^\n]+)(\*)([^\n]+)/g, '<ul><li>$3</li></ul>'],
 
   //Image
   [
@@ -67,9 +49,7 @@ const rules = [
   ],
 ];
 
-export const markdownToHtml = (
-  text: string,
-) => {
+export const markdownToHtml = (text: string) => {
   let html: string = text;
   rules.forEach(([rule, template]) => {
     html = html.replace(rule, template);

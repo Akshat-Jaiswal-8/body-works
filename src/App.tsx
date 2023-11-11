@@ -1,14 +1,7 @@
 import Hero from './pages/Hero.tsx';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound.tsx';
 import Exercises from './pages/Exercises.tsx';
 import Equipments from './pages/Equipments.tsx';
@@ -23,6 +16,7 @@ import {
   SignedIn,
   SignedOut,
 } from '@clerk/clerk-react';
+import RoutineCategory from './pages/RoutineCategory.tsx';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -31,45 +25,21 @@ function App() {
       },
     },
   });
-  if (
-    !import.meta.env
-      .VITE_REACT_APP_CLERK_PUBLISHABLE_KEY
-  ) {
-    throw new Error(
-      'Missing Publishable Key',
-    );
+  if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
+    throw new Error('Missing Publishable Key');
   }
-  const clerkPubKey = import.meta.env
-    .VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+  const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
 
   return (
-    <QueryClientProvider
-      client={queryClient}
-    >
-      <ReactQueryDevtools
-        initialIsOpen={false}
-      />
-      <ClerkProvider
-        publishableKey={clerkPubKey}
-      >
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <ClerkProvider publishableKey={clerkPubKey}>
         <BrowserRouter>
           <Routes>
-            <Route
-              path='/'
-              element={<Hero />}
-            />
-            <Route
-              path='/*'
-              element={<Login />}
-            />
-            <Route
-              path='/sign-in'
-              element={<Login />}
-            />
-            <Route
-              path='/sign-up'
-              element={<Register />}
-            />
+            <Route path='/' element={<Hero />} />
+            <Route path='/*' element={<Login />} />
+            <Route path='/sign-in' element={<Login />} />
+            <Route path='/sign-up' element={<Register />} />
             <Route
               path='/exercises'
               element={
@@ -136,9 +106,19 @@ function App() {
               }
             />
             <Route
-              path='*'
-              element={<PageNotFound />}
+              path='/routine-category'
+              element={
+                <>
+                  <SignedIn>
+                    <RoutineCategory />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
             />
+            <Route path='*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </ClerkProvider>
