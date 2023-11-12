@@ -3,10 +3,10 @@ import Error from './Error.tsx';
 import Navbar from '../ui/Navbar.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainRoutineCategory from '../features/routine-category/MainRoutineCategory.tsx';
-import { useRoutines } from '../features/routine-category/useRoutines.tsx';
+import { useRoutinesCategory } from '../features/routine-category/useRoutinesCategory.tsx';
 
 function RoutineCategory() {
-  const { isLoading, error } = useRoutines();
+  const { isLoading, error } = useRoutinesCategory();
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;

@@ -3,25 +3,31 @@
 import { Link } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
 import Spinner from './Spinner.tsx';
-import { useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 function Navbar() {
-  useState('light');
-
   const { isSignedIn, isLoaded }: boolean | undefined = useUser();
   if (!isLoaded) <Spinner />;
 
-  const theme: string | null = window.localStorage?.getItem('theme');
-  const toggleTheme = (): void => {
-    if (theme === 'dark') {
-      document.querySelector('html')?.setAttribute('class', 'light');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.querySelector('html')?.setAttribute('class', 'dark');
-      localStorage.setItem('theme', 'dark');
-    }
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem('theme') === 'dark',
+  );
+
+  const toggleTheme = () => {
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    setIsDarkMode(!isDarkMode);
+    localStorage.setItem('theme', newTheme);
+    document.querySelector('html').setAttribute('class', newTheme);
   };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+      document.querySelector('html').setAttribute('class', savedTheme);
+    }
+  }, []);
 
   return (
     <>
@@ -81,11 +87,7 @@ function Navbar() {
             onClick={toggleTheme}
             className='text-white cursor-pointer dark:bg-black hover:text-pink-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition-all duration-300'
           >
-            {theme === 'dark' ? (
-              <Sun color='#ffffff' className='hover:text-pink-500' />
-            ) : (
-              <Moon color='#ff9500' />
-            )}
+            {isDarkMode ? <Sun color='#ffffff' /> : <Moon color='#de7717' />}
           </button>
         </div>
       </div>

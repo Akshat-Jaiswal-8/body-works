@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getRoutineCategories } from '../../services/apiRoutineCategory.ts';
 
-export const useRoutines = () => {
+export const useRoutinesCategory = () => {
   const {
     isLoading,
     data: routineCategory,
