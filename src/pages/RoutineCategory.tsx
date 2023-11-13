@@ -1,6 +1,5 @@
 import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
-import Navbar from '../ui/Navbar.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainRoutineCategory from '../features/routine-category/MainRoutineCategory.tsx';
 import { useRoutinesCategory } from '../features/routine-category/useRoutinesCategory.tsx';
@@ -13,7 +12,6 @@ function RoutineCategory() {
 
   return (
     <>
-      <Navbar />
       <div className='grid grid-cols-5 h-[87vh] '>
         <Sidebar />
         <MainRoutineCategory />

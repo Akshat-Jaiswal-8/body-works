@@ -1,0 +1,25 @@
+import { useParams } from 'react-router-dom';
+import { useExercise } from '../features/Exercise/useExercise.tsx';
+import Spinner from '../ui/Spinner.tsx';
+import Error from './Error.tsx';
+import Sidebar from '../ui/Sidebar.tsx';
+import MainExerciseContent from '../features/Exercise/MainExerciseContent.tsx';
+
+const Exercise = () => {
+  const { exerciseId } = useParams();
+  const { isLoading, error } = useExercise(exerciseId);
+
+  if (isLoading) return <Spinner />;
+  if (error) return <Error />;
+
+  return (
+    <>
+      <div className='grid grid-cols-5 h-[87vh]'>
+        <Sidebar />
+        <MainExerciseContent />
+      </div>
+    </>
+  );
+};
+
+export default Exercise;

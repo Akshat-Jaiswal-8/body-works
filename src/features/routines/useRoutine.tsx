@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { getRoutine } from '../../services/apiRoutine.ts';
 
-export const UseRoutine = ({ searchName }) => {
+interface ISearchNameProp {
+  searchName: string;
+}
+export const UseRoutine = ({ searchName }: ISearchNameProp) => {
   const {
     isLoading,
     data: routine,

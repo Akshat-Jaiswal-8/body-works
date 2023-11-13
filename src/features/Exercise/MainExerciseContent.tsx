@@ -7,8 +7,7 @@ import { markdownToHtml } from '../../../actions/markdown-to-html.ts';
 
 function MainExerciseContent() {
   const { exerciseId } = useParams();
-  const { exercise } =
-    useExercise(exerciseId);
+  const { exercise } = useExercise(exerciseId);
 
   const descriptionMatch: RegExpMatchArray | null =
     exercise.blog.match('Description');
@@ -19,37 +18,17 @@ function MainExerciseContent() {
   const musclesWorkedMatch: RegExpMatchArray | null =
     exercise.blog.match('Muscles');
   const commonMistakesMatch: RegExpMatchArray | null =
-    exercise.blog.match(
-      'Common Mistakes',
-    );
+    exercise.blog.match('Common Mistakes');
   const safetyPrecautionsMatch: RegExpMatchArray | null =
-    exercise.blog.match(
-      'Safety Precautions',
-    );
+    exercise.blog.match('Safety Precautions');
 
-  const descriptionIndex:
-    | number
-    | undefined =
-    descriptionMatch?.index;
-  const instructionIndex:
-    | number
-    | undefined =
-    instructionMatch?.index;
-  const beginnerVariationIndex:
-    | number
-    | undefined =
+  const descriptionIndex: number | undefined = descriptionMatch?.index;
+  const instructionIndex: number | undefined = instructionMatch?.index;
+  const beginnerVariationIndex: number | undefined =
     beginnerVariationMatch?.index;
-  const musclesWorkedIndex:
-    | number
-    | undefined =
-    musclesWorkedMatch?.index;
-  const commonMistakesIndex:
-    | number
-    | undefined =
-    commonMistakesMatch?.index;
-  const safetyPrecautionsIndex:
-    | number
-    | undefined =
+  const musclesWorkedIndex: number | undefined = musclesWorkedMatch?.index;
+  const commonMistakesIndex: number | undefined = commonMistakesMatch?.index;
+  const safetyPrecautionsIndex: number | undefined =
     safetyPrecautionsMatch?.index;
 
   return (
@@ -58,146 +37,104 @@ function MainExerciseContent() {
         <div className='grid grid-cols-2 justify-center mt-16 mb-28'>
           <div className='col-span-1 text-left ml-16  py-12 px-6'>
             <div className='flex flex-col gap-8'>
-              <h1 className='text-white text-left text-5xl font-bold font-montserrat'>
+              <h1 className='dark:text-white text-amber-900 mb-4 text-left text-5xl font-bold'>
                 {exercise.title}
               </h1>
               <ExerciseHeaders
                 title={'Target Muscle'}
-                content={
-                  exercise.target
-                }
+                content={exercise.target}
               />
               <ExerciseHeaders
                 title={'Body Part'}
-                content={
-                  exercise.bodyPart
-                }
+                content={exercise.bodyPart}
               />
               <ExerciseHeaders
                 title={'Equipment'}
-                content={
-                  exercise.equipment
-                }
+                content={exercise.equipment}
               />
               <ExerciseHeaders
                 title={'Muscle Worked'}
-                content={
-                  exercise[
-                    'muscles worked'
-                  ]
-                }
+                content={exercise['muscles worked']}
               />
             </div>
           </div>
           <div className='col-span-1 items-center my-auto mx-auto'>
             <img
               alt='exercise gif'
-              className=' rounded-3xl '
+              className=' rounded-3xl drop-shadow-2xl '
               src={exercise.gifUrl}
             ></img>
           </div>
         </div>
-        <h1 className='text-gray-400 font-semibold text-xl ml-16 px-7'>
+        <h1 className='text-amber-800 dark:text-gray-400 font-semibold text-xl ml-16 px-7'>
           Reference Images
-          <span className='ml-2'>
-            :
-          </span>
+          <span className='ml-2'>:</span>
         </h1>
-        <div className='grid grid-cols-2 justify-center mb-16'>
-          {exercise.images.map(
-            (image: string) => (
-              <div className='text-left mx-16 my-12 px-6'>
-                <img
-                  key={image}
-                  src={image}
-                  className='h-80 w-full rounded-3xl'
-                  alt={'exercise image'}
-                />
-              </div>
-            ),
-          )}
+        <div className='grid grid-cols-2 drop-shadow-2xl justify-center mb-16'>
+          {exercise.images.map((image: string) => (
+            <div className='text-left mx-16 my-12 px-6'>
+              <img
+                key={image}
+                src={image}
+                className='h-80 w-full rounded-3xl'
+                alt={'exercise image'}
+              />
+            </div>
+          ))}
         </div>
-        <h1 className='text-gray-400 font-semibold text-xl ml-16 px-7'>
+        <h1 className='dark:text-gray-400 text-amber-800 font-semibold text-xl ml-16 px-7'>
           Reference Videos
-          <span className='ml-2'>
-            :
-          </span>
+          <span className='ml-2'>:</span>
         </h1>
         <div className='grid grid-cols-2 justify-center mt-8 mb-16'>
-          {exercise.videos.map(
-            (video: string) => (
-              <div className='text-left mx-16 my-12 px-6'>
-                <ReactPlayer
-                  key={video}
-                  volume={100}
-                  width='560'
-                  url={video}
-                  controls
-                ></ReactPlayer>
-              </div>
-            ),
-          )}
+          {exercise.videos.map((video: string) => (
+            <div className='text-left mx-16 my-12 px-6'>
+              <ReactPlayer
+                key={video}
+                volume={100}
+                width='560'
+                url={video}
+                controls
+              ></ReactPlayer>
+            </div>
+          ))}
         </div>
+
         <div className='text-left mx-16 px-6'>
           <ExerciseContent
             title={'Description'}
-            startIndex={
-              descriptionIndex
-                ? descriptionIndex + 12
-                : undefined
-            }
+            startIndex={descriptionIndex ? descriptionIndex + 12 : undefined}
             endIndex={instructionIndex}
           />
           <ExerciseContent
             title={'Instructions'}
-            startIndex={
-              instructionIndex
-                ? instructionIndex + 12
-                : undefined
-            }
-            endIndex={
-              beginnerVariationIndex
-            }
+            startIndex={instructionIndex ? instructionIndex + 12 : undefined}
+            endIndex={beginnerVariationIndex}
           />
           <ExerciseContent
             title={'Variations'}
             startIndex={
-              beginnerVariationIndex
-                ? beginnerVariationIndex +
-                  12
-                : undefined
+              beginnerVariationIndex ? beginnerVariationIndex + 12 : undefined
             }
-            endIndex={
-              musclesWorkedIndex
-            }
+            endIndex={musclesWorkedIndex}
           />
           <ExerciseContent
             title={'Common Mistakes'}
             startIndex={
-              commonMistakesIndex
-                ? commonMistakesIndex +
-                  18
-                : undefined
+              commonMistakesIndex ? commonMistakesIndex + 18 : undefined
             }
-            endIndex={
-              safetyPrecautionsIndex
-            }
+            endIndex={safetyPrecautionsIndex}
           />
           <ExerciseContent
             title={'Safety Precautions'}
             startIndex={
-              safetyPrecautionsIndex
-                ? safetyPrecautionsIndex +
-                  20
-                : undefined
+              safetyPrecautionsIndex ? safetyPrecautionsIndex + 20 : undefined
             }
           />
           <div
-            className='[all-unset]'
+            className='[all-unset] text-amber-800 border rounded-2xl border-amber-700 p-4'
             dangerouslySetInnerHTML={{
-              __html: markdownToHtml(
-                exercise.blog,
-              ),
+              __html: markdownToHtml(exercise.blog),
             }}
           ></div>
         </div>
