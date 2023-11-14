@@ -11,7 +11,8 @@ function MainEquipments() {
 
   return (
     <>
-      <SearchBar>
+      <div className='col-span-4 dark:bg-black my-6'>
+        <SearchBar />
         <div className='grid grid-cols-3 col-span-4 gap-8 mx-12 mt-10'>
           {equipments.map((equipment: IEquipments) => {
             return (
@@ -23,7 +24,7 @@ function MainEquipments() {
             );
           })}
         </div>
-      </SearchBar>
+      </div>
     </>
   );
 }

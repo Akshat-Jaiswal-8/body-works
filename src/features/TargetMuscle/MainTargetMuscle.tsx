@@ -8,19 +8,22 @@ import SearchBar from '../../ui/SearchBar.tsx';
 function MainTargetMuscle() {
   const { targetMuscle } = useTargetMuscle();
   return (
-    <SearchBar>
-      <div className='grid grid-cols-3 gap-8 mx-12 mt-10'>
-        {targetMuscle.map((targetMuscle: ITargetMuscle) => {
-          return (
-            <TargetMuscleCard
-              key={targetMuscle.targetMuscle}
-              name={targetMuscle.targetMuscle}
-              image={targetMuscle.imageUrl}
-            />
-          );
-        })}
+    <>
+      <div className='col-span-4 dark:bg-black my-6'>
+        <SearchBar />
+        <div className='grid grid-cols-3 w-full gap-5'>
+          {targetMuscle.map((targetMuscle: ITargetMuscle) => {
+            return (
+              <TargetMuscleCard
+                key={targetMuscle.targetMuscle}
+                name={targetMuscle.targetMuscle}
+                image={targetMuscle.imageUrl}
+              />
+            );
+          })}
+        </div>
       </div>
-    </SearchBar>
+    </>
   );
 }
 

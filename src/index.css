@@ -9,12 +9,15 @@ html{
 body{
   @apply dark:bg-black
 }
-.light{
-  background-color: #FFFBF5;
-}
+/*.light{*/
+/*  background-color: #FFFBF5;*/
+/*}*/
 
 :root {
-  --bg-primary-card-color: #F9B572;
+  --bg-card-light-primary-color: #F9B572;
+  --border-light-primary-color : #772f1a;
+  --bg-light-secondary-color : #F7EFE5;
+  --light-primary-hover-color : #8f3e00;
 }
 
 body {

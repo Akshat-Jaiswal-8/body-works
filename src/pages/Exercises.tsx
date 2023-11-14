@@ -3,6 +3,7 @@ import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainExercises from '../features/Exercises/MainExercises.tsx';
+import Footer from '../ui/Footer.tsx';
 
 function Exercises() {
   const { isLoading, error } = useExercises();
@@ -12,10 +13,11 @@ function Exercises() {
 
   return (
     <>
-      <div className='bg-[#FFFBF5] dark:bg-gray-950 grid grid-cols-5 h-full'>
+      <div className='dark:bg-gray-950 grid grid-cols-5 h-full'>
         <Sidebar />
         <MainExercises />
       </div>
+      <Footer />
     </>
   );
 }

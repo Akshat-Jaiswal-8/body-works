@@ -3,16 +3,14 @@ interface ITargetMuscleProp {
   image: string;
 }
 
-function TargetMuscleCard(
-  props: ITargetMuscleProp,
-) {
+function TargetMuscleCard(props: ITargetMuscleProp) {
   const name: string = props.name;
   const image: string = props.image;
   return (
     <>
       <a href={`/exercises/`}>
         <div className='overflow-y-scroll hover:-translate-y-6 transition-all duration-300 mx-8 cursor-pointer scrollbar-hide h-70 bg-bg-card-primary-color dark:bg-gray-900 mt-10 border border-amber-700 dark:border-gray-800 rounded-xl overflow-hidden'>
-          <div className='flex flex-col gap-3'>
+          <div className='flex flex-col'>
             <img
               src={image}
               className='w-full h-48 overflow-hidden'

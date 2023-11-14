@@ -9,19 +9,22 @@ function MainBodyPart() {
   const { bodyParts } = useBodyPart();
 
   return (
-    <SearchBar>
-      <div className='grid grid-cols-3 gap-8 mx-12 mt-10'>
-        {bodyParts.map((bodyPart: IBodyPart) => {
-          return (
-            <BodyPartCard
-              key={bodyPart.bodyPart}
-              name={bodyPart.bodyPart}
-              image={bodyPart.imageUrl}
-            />
-          );
-        })}
+    <>
+      <div className='col-span-4 dark:bg-black my-6'>
+        <SearchBar />
+        <div className='grid grid-cols-3 gap-5'>
+          {bodyParts.map((bodyPart: IBodyPart) => {
+            return (
+              <BodyPartCard
+                key={bodyPart.bodyPart}
+                name={bodyPart.bodyPart}
+                image={bodyPart.imageUrl}
+              />
+            );
+          })}
+        </div>
       </div>
-    </SearchBar>
+    </>
   );
 }
 

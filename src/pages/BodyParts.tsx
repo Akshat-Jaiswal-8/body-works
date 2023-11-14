@@ -8,11 +8,7 @@ function BodyParts() {
   const { isLoading, error } = useBodyPart();
 
   if (isLoading) return <Spinner />;
-  if (error) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return <Error />;
-  }
+  if (error) return <Error />;
 
   return (
     <>

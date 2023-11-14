@@ -7,18 +7,13 @@ interface IProps {
   id: string;
 }
 
-const ExerciseCard = (props: IProps) => {
-  const gif: string = props.gif;
-  const title: string = props.title;
-  const blog: string = props.blog;
-  const id: string = props.id;
-
+const ExerciseCard = ({ gif, title, blog, id }: IProps) => {
   const match: RegExpMatchArray | null = blog.match('Description');
   const index: number | undefined = match?.index;
 
   return (
     <>
-      <div className='overflow-y-scroll hover:-translate-y-6 transition-all duration-300 bg-bg-card-primary-color max-w-sm mx-12 overflow-y-scroll scrollbar-hide h-80 dark:bg-gray-900 mt-10 border dark:border-gray-800 border-amber-700 rounded-xl overflow-hidden'>
+      <div className='hover:-translate-y-6 transition-all duration-300 bg-bg-card-light-primary-color max-w-sm mx-12 overflow-y-scroll scrollbar-hide h-80 dark:bg-gray-900 mt-10 border dark:border-gray-800 border-border-light-primary-color rounded-xl overflow-hidden'>
         <div className='flex flex-col gap-3'>
           <a href={`/exercises/${id}`}>
             <img src={gif} className='w-full h-48' alt='exercise image' />
@@ -32,9 +27,9 @@ const ExerciseCard = (props: IProps) => {
             </p>
             <a
               href={`/exercises/${id}`}
-              className='flex dark:text-white dark:hover:text-pink-500 hover:text-amber-600 text-gray-800 transition-all duration-300 text-center items-center'
+              className='flex dark:text-white dark:hover:text-pink-500 hover:text-primary-hover-color text-gray-800 transition-all duration-300 text-center items-center'
             >
-              More
+              More{' '}
               <span className='ml-1'>
                 <BsArrowRight />
               </span>

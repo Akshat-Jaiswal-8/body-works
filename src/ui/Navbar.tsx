@@ -5,6 +5,7 @@ import { useUser } from '@clerk/clerk-react';
 import Spinner from './Spinner.tsx';
 import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import NavElements from './NavElements.tsx';
 
 function Navbar() {
   const { isSignedIn, isLoaded }: boolean | undefined = useUser();
@@ -32,7 +33,7 @@ function Navbar() {
   return (
     <>
       {isLoaded && (
-        <div className='flex bg-[#F7EFE5] dark:bg-black justify-between px-10 py-4 dark:border-gray-700 border-b border-amber-700 border-dotted shadow-indigo-500/40'>
+        <div className='flex w-[80%] mx-auto dark:bg-transparent bg-transparent justify-between px-10 py-4 border-border-light-primary-color dark:border-gray-700'>
           <div className='flex items-center animate-pulse cursor-pointer '>
             <img
               src={'/logo.jpg'}
@@ -44,37 +45,17 @@ function Navbar() {
             </a>
           </div>
           <div className='flex items-center'>
-            <Link
-              to={'/'}
-              className='text-black dark:text-gray-200 dark:hover:text-pink-500 font-semibold cursor-pointer font-poppins hover:text-amber-900 transition-all duration-300 ease-in-out m-3'
-            >
-              Home
-            </Link>
-            <Link
-              to={'/'}
-              className='text-black dark:text-gray-200 dark:hover:text-pink-500 font-semibold cursor-pointer font-poppins hover:text-amber-900 transition-all duration-300 ease-in-out m-3'
-            >
-              About
-            </Link>
-            <Link
-              to={'/'}
-              className='text-black dark:text-gray-200 dark:hover:text-pink-500 font-semibold cursor-pointer font-poppins hover:text-amber-900 transition-all duration-300 ease-in-out m-3'
-            >
-              Testimonials
-            </Link>
-            <Link
-              to={'/'}
-              className='text-black dark:text-gray-200 dark:hover:text-pink-500 font-semibold cursor-pointer font-poppins hover:text-amber-900 transition-all duration-300 ease-in-out m-3'
-            >
-              Contact
-            </Link>
+            <NavElements title='Home' />
+            <NavElements title='About' />
+            <NavElements title='BMI' />
+            <NavElements title='BMR' />
           </div>
           <div className='inline-flex'>
             {!isSignedIn && (
               <div className='flex items-center'>
                 <Link
                   to={'/sign-in'}
-                  className='font-semibold dark:text-gray-100 dark:hover:text-pink-500 cursor-pointer font-poppins hover:text-amber-900 rounded-md px-4 py-2 transition-all duration-300 ease-in-out m-3'
+                  className='font-semibold dark:text-gray-100 dark:hover:text-pink-500 cursor-pointer font-poppins hover:text-primary-hover-color rounded-md px-4 py-2 transition-all duration-300 ease-in-out m-3'
                 >
                   Login
                 </Link>

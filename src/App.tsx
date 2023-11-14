@@ -10,7 +10,7 @@ import BodyParts from './pages/BodyParts.tsx';
 import Exercise from './pages/Exercise.tsx';
 import Login from './ui/Login.tsx';
 import Register from './ui/Register.tsx';
-import Routines from './features/routines/routines.tsx';
+import Routines from './pages/Routines.tsx';
 import {
   ClerkProvider,
   RedirectToSignIn,
@@ -18,7 +18,7 @@ import {
   SignedOut,
 } from '@clerk/clerk-react';
 import RoutineCategory from './pages/RoutineCategory.tsx';
-import Navbar from './ui/Navbar.tsx';
+import Routine from './features/routine/Routine.tsx';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -37,7 +37,6 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <ClerkProvider publishableKey={clerkPubKey}>
         <BrowserRouter>
-          <Navbar />
           <Routes>
             <Route path='/' element={<Hero />} />
             <Route path='/*' element={<Login />} />
@@ -127,6 +126,19 @@ function App() {
                 <>
                   <SignedIn>
                     <Routines />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
+            <Route
+              path='/routines/routine/:id'
+              element={
+                <>
+                  <SignedIn>
+                    <Routine />
                   </SignedIn>
                   <SignedOut>
                     <RedirectToSignIn />

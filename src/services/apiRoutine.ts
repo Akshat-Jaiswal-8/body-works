@@ -1,17 +1,13 @@
 import axios from 'axios';
 
-interface IRoutine {
-  title: string;
-  imageUrl: string;
-}
-
-const getRoutine = async ({ searchName }) => {
+type IRoutinesProps = {
+  routineId: string | undefined;
+};
+const getRoutine = async ({ routineId }: IRoutinesProps) => {
   const routine = await axios.get(
-    `https://body-works.vercel.app/api/routine?search=${searchName}`,
+    `https://body-works.vercel.app/api/routine/${routineId}`,
   );
-  const allroutine = routine?.data?.data;
-  return allroutine;
+  return routine?.data;
 };
 
 export { getRoutine };
-export type { IRoutine };
