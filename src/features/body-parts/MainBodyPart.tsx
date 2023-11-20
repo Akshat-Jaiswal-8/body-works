@@ -1,24 +1,21 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import { useBodyPart } from './useBodyPart.tsx';
-import { IBodyPart } from '../../services/apiBodyPart.ts';
-import BodyPartCard from './BodyPartCard.tsx';
 import SearchBar from '../../ui/SearchBar.tsx';
+import BodyPartCard from './bodyPartCard.tsx';
+import { IExercise } from '../../services/apiExercises.ts';
 
-function MainBodyPart() {
-  const { bodyParts } = useBodyPart();
-
+function MainBodyPart({ bodyPart }: { bodyPart: IExercise | undefined }) {
   return (
     <>
       <div className='col-span-4 dark:bg-black my-6'>
         <SearchBar />
         <div className='grid grid-cols-3 gap-5'>
-          {bodyParts.map((bodyPart: IBodyPart) => {
+          {Object(bodyPart)?.map((bodyPart: IExercise) => {
             return (
               <BodyPartCard
-                key={bodyPart.bodyPart}
-                name={bodyPart.bodyPart}
-                image={bodyPart.imageUrl}
+                id={bodyPart.id}
+                key={bodyPart.id}
+                gif={bodyPart.gifUrl}
+                title={bodyPart.title}
+                blog={bodyPart.blog}
               />
             );
           })}

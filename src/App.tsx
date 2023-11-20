@@ -19,6 +19,8 @@ import {
 } from '@clerk/clerk-react';
 import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
+import Navbar from './ui/Navbar.tsx';
+import BodyPart from './pages/BodyPart.tsx';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -36,119 +38,135 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <ClerkProvider publishableKey={clerkPubKey}>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Hero />} />
-            <Route path='/*' element={<Login />} />
-            <Route path='/sign-in' element={<Login />} />
-            <Route path='/sign-up' element={<Register />} />
-            <Route
-              path='/exercises'
-              element={
-                <>
-                  <SignedIn>
-                    <Exercises />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/equipments'
-              element={
-                <>
-                  <SignedIn>
-                    <Equipments />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/target-muscle'
-              element={
-                <>
-                  <SignedIn>
-                    <TargetMuscle />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/body-parts'
-              element={
-                <>
-                  <SignedIn>
-                    <BodyParts />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/exercises/:exerciseId'
-              element={
-                <>
-                  <SignedIn>
-                    <Exercise />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/routine-category'
-              element={
-                <>
-                  <SignedIn>
-                    <RoutineCategory />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/routines/:routineName'
-              element={
-                <>
-                  <SignedIn>
-                    <Routines />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path='/routines/routine/:id'
-              element={
-                <>
-                  <SignedIn>
-                    <Routine />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <div className='dark:bg-black'>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path='/' element={<Hero />} />
+              <Route path='/*' element={<Login />} />
+              <Route path='/sign-in' element={<Login />} />
+              <Route path='/sign-up' element={<Register />} />
+              <Route
+                path='/exercises'
+                element={
+                  <>
+                    <SignedIn>
+                      <Exercises />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/equipments'
+                element={
+                  <>
+                    <SignedIn>
+                      <Equipments />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/target-muscle'
+                element={
+                  <>
+                    <SignedIn>
+                      <TargetMuscle />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/body-parts'
+                element={
+                  <>
+                    <SignedIn>
+                      <BodyParts />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/body-parts/:bodypart'
+                element={
+                  <>
+                    <SignedIn>
+                      <BodyPart />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/exercises/:exerciseId'
+                element={
+                  <>
+                    <SignedIn>
+                      <Exercise />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/routine-category'
+                element={
+                  <>
+                    <SignedIn>
+                      <RoutineCategory />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/routines/:routineName'
+                element={
+                  <>
+                    <SignedIn>
+                      <Routines />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/routines/routine/:id'
+                element={
+                  <>
+                    <SignedIn>
+                      <Routine />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </ClerkProvider>
     </QueryClientProvider>
   );

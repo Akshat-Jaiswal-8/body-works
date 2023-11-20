@@ -6,13 +6,13 @@ import useRoutine from './useRoutines.tsx';
 import Spinner from '../../ui/Spinner.tsx';
 import SearchBar from '../../ui/SearchBar.tsx';
 
-interface IRoutine {
-  category: Array<string>;
+export interface IRoutine {
+  category: string[];
   routine: {
     routine_title: string;
     routine_description: string;
     routine_imageUrl: string;
-    workout_plan: Array<{ heading: string; day_plan: string }>;
+    workout_plan: { heading: string; day_plan: string }[];
     workout_summary: {
       MainGoal: string;
       WorkoutType: string;

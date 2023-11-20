@@ -1,11 +1,11 @@
 import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
-import MainBodyPart from '../features/body-parts/MainBodyPart.tsx';
-import { useBodyPart } from '../features/body-parts/useBodyPart.tsx';
+import MainBodyParts from '../features/body-parts/MainBodyParts.tsx';
+import { useBodyParts } from '../features/body-parts/useBodyParts.tsx';
 
 function BodyParts() {
-  const { isLoading, error } = useBodyPart();
+  const { isLoading, error } = useBodyParts();
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -14,7 +14,7 @@ function BodyParts() {
     <>
       <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
-        <MainBodyPart />
+        <MainBodyParts />
       </div>
     </>
   );

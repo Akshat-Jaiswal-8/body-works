@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import Footer from '../ui/Footer.tsx';
-import Navbar from '../ui/Navbar.tsx';
 
 function Hero() {
   return (
     <>
-      <div className="bg-[url('public/hero_dark.jpg')] bg-[50%]">
-        <Navbar />
+      <div className="bg-[url('/hero_dark.jpg')] bg-[50%]">
+        {/*<Navbar />*/}
         <div className='pt-16 pr-0 pl-0 pb-8 '>
           <div className='max-w-7xl my-[3rem] mx-auto py-0 text-center px-3.5 items-center gap-24'>
             <div className='px-4 w-[60%] mx-auto'>
@@ -21,13 +20,13 @@ function Hero() {
                 </span>
               </h1>
               <div className='text-center mx-auto px-4'>
-                <p className='text-black px-8 dark:text-gray-200 dark:hover:text-pink-500 hover:text-amber-700 transition-all duration-300 font-poppins text-xl opacity-70 leading-10'>
+                <p className='text-black px-8 dark:text-gray-100 dark:hover:text-pink-500 hover:text-amber-700 transition-all duration-300 font-poppins text-xl opacity-70 leading-10'>
                   Are you lagging to find the best exercises for your muscles ?
                 </p>
-                <p className='text-black px-8 dark:text-gray-200 dark:hover:text-pink-500 hover:text-amber-700 transition-all font-poppins text-xl opacity-70 leading-10 decoration-inherit'>
+                <p className='text-black px-8 dark:text-gray-100 dark:hover:text-pink-500 hover:text-amber-700 transition-all font-poppins text-xl opacity-70 leading-10 decoration-inherit'>
                   Now your wait is over with BodyWorks!{' '}
                 </p>
-                <p className='text-black dark:text-gray-200 dark:hover:text-pink-500 hover:text-amber-700 transition-all font-poppins text-xl opacity-70 leading-10 mb-16'>
+                <p className='text-black dark:text-gray-100 dark:hover:text-pink-500 hover:text-amber-700 transition-all font-poppins text-xl opacity-70 leading-10 mb-16'>
                   Build your muscles with your favourite exercises!
                 </p>
               </div>

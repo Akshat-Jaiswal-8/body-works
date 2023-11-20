@@ -1,13 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
+import { IExercise } from './apiExercises.ts';
 
-export interface IBodyPart {
-  bodyPart: string;
-  imageUrl: string;
-}
-
-export const getBodyPart = async () => {
-  const bodyPart = await axios.get(
-    "https://body-works.vercel.app/api/bodyparts",
+export const getBodyPart = async (
+  bodyPart: string | undefined,
+): Promise<IExercise> => {
+  const bodypart = await axios.get(
+    `https://body-works.vercel.app/api/exercises?bodypart=${bodyPart}`,
   );
-  return bodyPart.data.data;
+  return bodypart.data.data;
 };

@@ -33,7 +33,7 @@ function Navbar() {
   return (
     <>
       {isLoaded && (
-        <div className='flex w-[80%] mx-auto dark:bg-transparent bg-transparent justify-between px-10 py-4 border-border-light-primary-color dark:border-gray-700'>
+        <div className='flex w-full mx-auto dark:bg-black bg-bg-light-secondary-color justify-between px-10 py-4 border-border-light-primary-color'>
           <div className='flex items-center animate-pulse cursor-pointer '>
             <img
               src={'/logo.jpg'}

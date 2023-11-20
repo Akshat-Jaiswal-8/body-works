@@ -13,7 +13,7 @@ function Exercises() {
 
   return (
     <>
-      <div className='dark:bg-gray-950 grid grid-cols-5 h-full'>
+      <div className='dark:bg-black grid grid-cols-5 h-full'>
         <Sidebar />
         <MainExercises />
       </div>

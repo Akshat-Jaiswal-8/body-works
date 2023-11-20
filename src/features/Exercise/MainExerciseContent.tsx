@@ -1,5 +1,4 @@
 import ExerciseHeaders from './ExerciseHeaders.tsx';
-import ExerciseContent from './ExerciseContent.tsx';
 import { useParams } from 'react-router-dom';
 import { useExercise } from './useExercise.tsx';
 import ReactPlayer from 'react-player';
@@ -9,35 +8,13 @@ function MainExerciseContent() {
   const { exerciseId } = useParams();
   const { exercise } = useExercise(exerciseId);
 
-  const descriptionMatch: RegExpMatchArray | null =
-    exercise.blog.match('Description');
-  const instructionMatch: RegExpMatchArray | null =
-    exercise.blog.match('Instructions');
-  const beginnerVariationMatch: RegExpMatchArray | null =
-    exercise.blog.match('Variations');
-  const musclesWorkedMatch: RegExpMatchArray | null =
-    exercise.blog.match('Muscles');
-  const commonMistakesMatch: RegExpMatchArray | null =
-    exercise.blog.match('Common Mistakes');
-  const safetyPrecautionsMatch: RegExpMatchArray | null =
-    exercise.blog.match('Safety Precautions');
-
-  const descriptionIndex: number | undefined = descriptionMatch?.index;
-  const instructionIndex: number | undefined = instructionMatch?.index;
-  const beginnerVariationIndex: number | undefined =
-    beginnerVariationMatch?.index;
-  const musclesWorkedIndex: number | undefined = musclesWorkedMatch?.index;
-  const commonMistakesIndex: number | undefined = commonMistakesMatch?.index;
-  const safetyPrecautionsIndex: number | undefined =
-    safetyPrecautionsMatch?.index;
-
   return (
     <>
-      <div className='text-white col-span-4 w-full'>
-        <div className='grid grid-cols-2 justify-center mt-16 mb-28'>
-          <div className='col-span-1 text-left ml-16  py-12 px-6'>
+      <div className='text-white col-span-4  dark:border-gray-700 border-dotted'>
+        <div className='grid grid-cols-2 gap-5 justify-center mt-16 mx-16 mb-28'>
+          <div className='col-span-1 gap-16 py-12 border-double border-amber-900 dark:border-pink-500 border-b border-t'>
             <div className='flex flex-col gap-8'>
-              <h1 className='dark:text-white text-amber-900 mb-4 text-left text-5xl font-bold'>
+              <h1 className='bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-poppins mb-4 text-left text-5xl font-bold'>
                 {exercise.title}
               </h1>
               <ExerciseHeaders
@@ -61,78 +38,56 @@ function MainExerciseContent() {
           <div className='col-span-1 items-center my-auto mx-auto'>
             <img
               alt='exercise gif'
-              className=' rounded-3xl drop-shadow-2xl '
+              className=' rounded-3xl shadow shadow-amber-900/100 drop-shadow-2xl '
               src={exercise.gifUrl}
             ></img>
           </div>
         </div>
-        <h1 className='text-amber-800 dark:text-gray-400 font-semibold text-xl ml-16 px-7'>
-          Reference Images
-          <span className='ml-2'>:</span>
-        </h1>
-        <div className='grid grid-cols-2 drop-shadow-2xl justify-center mb-16'>
-          {exercise.images.map((image: string) => (
-            <div className='text-left mx-16 my-12 px-6'>
-              <img
-                key={image}
-                src={image}
-                className='h-80 w-full rounded-3xl'
-                alt={'exercise image'}
-              />
+        <div className='px-16'>
+          <h1 className='text-amber-800 dark:text-gray-100 font-bold text-xl'>
+            Reference Images
+            <span className='ml-2'>:</span>
+          </h1>
+          <div className='overflow-x-scroll scrollbar-hide'>
+            <div className='grid grid-cols-5 overflow-x-auto gap-5 scrollbar-hide w-[100vw] drop-shadow-2xl justify-between mb-10'>
+              {exercise.images.map((image: string) => (
+                <div className='text-left my-12'>
+                  <img
+                    key={image}
+                    src={image}
+                    className='h-[100%] w-[85%] rounded-3xl'
+                    alt={'exercise image'}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-        <h1 className='dark:text-gray-400 text-amber-800 font-semibold text-xl ml-16 px-7'>
-          Reference Videos
-          <span className='ml-2'>:</span>
-        </h1>
-        <div className='grid grid-cols-2 justify-center mt-8 mb-16'>
-          {exercise.videos.map((video: string) => (
-            <div className='text-left mx-16 my-12 px-6'>
-              <ReactPlayer
-                key={video}
-                volume={100}
-                width='560'
-                url={video}
-                controls
-              ></ReactPlayer>
+        <div className='px-16'>
+          <h1 className='dark:text-gray-100 text-amber-800 font-bold text-xl'>
+            Reference Videos
+            <span className='ml-2'>:</span>
+          </h1>
+          <div className='overflow-x-scroll scrollbar-hide'>
+            <div className='grid grid-cols-5 overflow-x-auto gap-5 scrollbar-hide w-[100vw] drop-shadow-2xl justify-between mb-16'>
+              {exercise.videos.map((video: string) => (
+                <div className='text-left my-12 mx-8'>
+                  <ReactPlayer
+                    key={video}
+                    volume={100}
+                    width='100'
+                    url={video}
+                    controls
+                  ></ReactPlayer>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className='text-left mx-16 px-6'>
-          <ExerciseContent
-            title={'Description'}
-            startIndex={descriptionIndex ? descriptionIndex + 12 : undefined}
-            endIndex={instructionIndex}
-          />
-          <ExerciseContent
-            title={'Instructions'}
-            startIndex={instructionIndex ? instructionIndex + 12 : undefined}
-            endIndex={beginnerVariationIndex}
-          />
-          <ExerciseContent
-            title={'Variations'}
-            startIndex={
-              beginnerVariationIndex ? beginnerVariationIndex + 12 : undefined
-            }
-            endIndex={musclesWorkedIndex}
-          />
-          <ExerciseContent
-            title={'Common Mistakes'}
-            startIndex={
-              commonMistakesIndex ? commonMistakesIndex + 18 : undefined
-            }
-            endIndex={safetyPrecautionsIndex}
-          />
-          <ExerciseContent
-            title={'Safety Precautions'}
-            startIndex={
-              safetyPrecautionsIndex ? safetyPrecautionsIndex + 20 : undefined
-            }
-          />
+        <div className='text-left px-16 mb-16'>
           <div
-            className='[all-unset] text-amber-800 border rounded-2xl border-amber-700 p-4'
+            className='[all-unset] dark:text-gray-200 text-amber-800 border rounded-2xl dark:border-gray-700 border-amber-700 p-4 markdown-content'
             dangerouslySetInnerHTML={{
               __html: markdownToHtml(exercise.blog),
             }}
