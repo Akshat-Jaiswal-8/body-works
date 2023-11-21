@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound.tsx';
 import Exercises from './pages/Exercises.tsx';
 import Equipments from './pages/Equipments.tsx';
-import TargetMuscle from './pages/TargetMuscle.tsx';
+import TargetMuscles from './pages/TargetMuscles.tsx';
 import BodyParts from './pages/BodyParts.tsx';
 import Exercise from './pages/Exercise.tsx';
 import Login from './ui/Login.tsx';
@@ -21,6 +21,8 @@ import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
 import Navbar from './ui/Navbar.tsx';
 import BodyPart from './pages/BodyPart.tsx';
+import Equipment from './pages/Equipment.tsx';
+import TargetMuscle from './pages/TargetMuscle.tsx';
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -73,7 +75,33 @@ function App() {
                 }
               />
               <Route
+                path='/equipments/:equipment'
+                element={
+                  <>
+                    <SignedIn>
+                      <Equipment />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
                 path='/target-muscle'
+                element={
+                  <>
+                    <SignedIn>
+                      <TargetMuscles />
+                    </SignedIn>
+                    <SignedOut>
+                      <RedirectToSignIn />
+                    </SignedOut>
+                  </>
+                }
+              />
+              <Route
+                path='/target-muscle/:targetMuscle'
                 element={
                   <>
                     <SignedIn>

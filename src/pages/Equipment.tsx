@@ -4,20 +4,20 @@ import { useParams } from 'react-router-dom';
 import Error from './Error.tsx';
 import Spinner from '../ui/Spinner.tsx';
 import { IExercise } from '../services/apiExercises.ts';
-import { useTargetMuscle } from '../features/TargetMuscle/useTargetMuscle.tsx';
-import MainTargetMuscle from '../features/TargetMuscle/MainTargetMuscle.tsx';
+import { useEquipment } from '../features/Equipments/useEquipment.tsx';
+import MainEquipment from '../features/Equipments/MainEquipment.tsx';
 
-function TargetMuscle() {
-  const { targetMuscle } = useParams();
+function Equipment() {
+  const { equipment } = useParams();
   const {
     isLoading,
-    TargetMuscle,
+    Equipment,
     error,
   }: {
     isLoading: boolean;
-    TargetMuscle: IExercise | undefined;
+    Equipment: IExercise | undefined;
     error: Error | null;
-  } = useTargetMuscle(targetMuscle);
+  } = useEquipment(equipment);
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -26,10 +26,10 @@ function TargetMuscle() {
     <>
       <div className='dark:bg-black grid grid-cols-5 h-full'>
         <Sidebar />
-        <MainTargetMuscle targetMuscle={TargetMuscle} />
+        <MainEquipment Equipment={Equipment} />
       </div>
       <Footer />
     </>
   );
 }
-export default TargetMuscle;
+export default Equipment;

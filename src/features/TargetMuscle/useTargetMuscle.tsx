@@ -1,14 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
-import { getTargetMuscle } from "../../services/apiTargetMuscle.ts";
+import { useQuery } from '@tanstack/react-query';
+import { getTargetMuscle } from '../../services/apiTargetMuscle.ts';
 
-export const useTargetMuscle = () => {
+export const useTargetMuscle = (targetMuscle: string | undefined) => {
   const {
     isLoading,
-    data: targetMuscle,
+    data: TargetMuscle,
     error,
   } = useQuery({
-    queryKey: ["target-muscle"],
-    queryFn: getTargetMuscle,
+    queryKey: ['target-muscle'],
+    queryFn: () => getTargetMuscle(targetMuscle),
   });
-  return { isLoading, targetMuscle, error };
+  return { isLoading, TargetMuscle, error };
 };

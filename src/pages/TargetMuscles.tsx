@@ -1,12 +1,12 @@
 import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
-import MainBodyParts from '../features/body-parts/MainBodyParts.tsx';
-import { useBodyParts } from '../features/body-parts/useBodyParts.tsx';
+import MainTargetMuscles from '../features/TargetMuscle/MainTargetMuscles.tsx';
+import { useTargetMuscles } from '../features/TargetMuscle/useTargetMuscles.tsx';
 import Footer from '../ui/Footer.tsx';
 
-function BodyParts() {
-  const { isLoading, error } = useBodyParts();
+function TargetMuscles() {
+  const { isLoading, error } = useTargetMuscles();
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
@@ -15,7 +15,7 @@ function BodyParts() {
     <>
       <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
-        <MainBodyParts />
+        <MainTargetMuscles />
         <div className='col-span-5'>
           <Footer />
         </div>
@@ -23,4 +23,4 @@ function BodyParts() {
     </>
   );
 }
-export default BodyParts;
+export default TargetMuscles;

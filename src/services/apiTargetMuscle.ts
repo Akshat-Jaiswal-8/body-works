@@ -1,13 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
+import { IExercise } from './apiExercises.ts';
 
-export interface ITargetMuscle {
-  targetMuscle: string;
-  imageUrl: string;
-}
-
-export const getTargetMuscle = async () => {
-  const targetMuscle = await axios.get(
-    "https://body-works.vercel.app/api/targetmuscles",
+export const getTargetMuscle = async (
+  targetMuscle: string | undefined,
+): Promise<IExercise> => {
+  const TargetMuscle = await axios.get(
+    `https://body-works.vercel.app/api/exercises?targetMuscle=${targetMuscle}`,
   );
-  return targetMuscle.data.data;
+  console.log(TargetMuscle);
+  return TargetMuscle.data.data;
 };
