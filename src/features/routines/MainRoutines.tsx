@@ -43,7 +43,7 @@ function MainRoutines() {
 
   return (
     <>
-      <div className='col-span-4 dark:bg-black my-6'>
+      <div className='col-span-4 dark:bg-black py-6'>
         <SearchBar />
         <div className='grid grid-cols-3 w-full'>
           {routines.map((eachroutine: IRoutine) => {

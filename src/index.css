@@ -24,8 +24,40 @@ body{
   @apply p-2 font-montserrat dark:text-gray-200 text-amber-700 font-semibold text-lg
 }
 
+.workout-plan-markdown-content table {
+  @apply w-full text-amber-800 dark:text-gray-200
+}
 
-:root {
+.workout-plan-markdown-content th:not(:last-child),
+.workout-plan-markdown-content td:not(:last-child) {
+  @apply px-4 py-4 text-left border-r border-t border-dashed border-amber-900 dark:border-gray-700 ;
+}
+
+.workout-plan-markdown-content th:last-child{
+  @apply border-t border-dashed border-amber-900 dark:border-gray-700
+}
+
+.workout-plan-markdown-content tr:last-child{
+  @apply border-b border-dashed rounded-bl-2xl rounded-br-2xl  border-amber-900 dark:border-gray-700
+}
+
+.workout-plan-markdown-content td:last-child{
+  @apply px-4 py-4 text-left border-dashed border-t border-amber-900 dark:border-gray-700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   :root {
   --bg-card-light-primary-color: #F9B572;
   --border-light-primary-color : #772f1a;
   --bg-light-secondary-color : #F7EFE5;
