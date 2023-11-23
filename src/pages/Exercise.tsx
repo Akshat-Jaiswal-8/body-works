@@ -5,6 +5,7 @@ import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainExerciseContent from '../features/Exercise/MainExerciseContent.tsx';
 import Footer from '../ui/Footer.tsx';
+import Navbar from '../ui/Navbar.tsx';
 
 const Exercise = () => {
   const { exerciseId } = useParams();
@@ -15,6 +16,7 @@ const Exercise = () => {
 
   return (
     <>
+      <Navbar />
       <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
         <MainExerciseContent />

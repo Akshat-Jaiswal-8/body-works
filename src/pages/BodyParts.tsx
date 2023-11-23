@@ -4,6 +4,7 @@ import Sidebar from '../ui/Sidebar.tsx';
 import MainBodyParts from '../features/body-parts/MainBodyParts.tsx';
 import { useBodyParts } from '../features/body-parts/useBodyParts.tsx';
 import Footer from '../ui/Footer.tsx';
+import Navbar from '../ui/Navbar.tsx';
 
 function BodyParts() {
   const { isLoading, error } = useBodyParts();
@@ -13,6 +14,7 @@ function BodyParts() {
 
   return (
     <>
+      <Navbar />
       <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
         <MainBodyParts />

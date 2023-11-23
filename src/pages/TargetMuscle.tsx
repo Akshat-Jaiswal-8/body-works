@@ -6,6 +6,7 @@ import Spinner from '../ui/Spinner.tsx';
 import { IExercise } from '../services/apiExercises.ts';
 import { useTargetMuscle } from '../features/TargetMuscle/useTargetMuscle.tsx';
 import MainTargetMuscle from '../features/TargetMuscle/MainTargetMuscle.tsx';
+import Navbar from '../ui/Navbar.tsx';
 
 function TargetMuscle() {
   const { targetMuscle } = useParams();
@@ -24,6 +25,7 @@ function TargetMuscle() {
 
   return (
     <>
+      <Navbar />
       <div className='dark:bg-black grid grid-cols-5 h-full'>
         <Sidebar />
         <MainTargetMuscle targetMuscle={TargetMuscle} />

@@ -17,22 +17,10 @@ function MainExerciseContent() {
               <h1 className='bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-poppins mb-4 text-left text-5xl font-bold'>
                 {exercise.title}
               </h1>
-              <ExerciseHeaders
-                title={'Target Muscle'}
-                content={exercise.target}
-              />
-              <ExerciseHeaders
-                title={'Body Part'}
-                content={exercise.bodyPart}
-              />
-              <ExerciseHeaders
-                title={'Equipment'}
-                content={exercise.equipment}
-              />
-              <ExerciseHeaders
-                title={'Muscle Worked'}
-                content={exercise['muscles worked']}
-              />
+              <ExerciseHeaders title={'Target Muscle'} content={exercise.target} />
+              <ExerciseHeaders title={'Body Part'} content={exercise.bodyPart} />
+              <ExerciseHeaders title={'Equipment'} content={exercise.equipment} />
+              <ExerciseHeaders title={'Muscle Worked'} content={exercise['muscles worked']} />
             </div>
           </div>
           <div className='col-span-1 items-center my-auto mx-auto'>
@@ -52,12 +40,7 @@ function MainExerciseContent() {
             <div className='grid grid-cols-5 overflow-x-auto gap-5 scrollbar-hide w-[100vw] drop-shadow-2xl justify-between mb-10'>
               {exercise.images.map((image: string) => (
                 <div className='text-left my-12'>
-                  <img
-                    key={image}
-                    src={image}
-                    className='h-[100%] w-[85%] rounded-3xl'
-                    alt={'exercise image'}
-                  />
+                  <img key={image} src={image} className='h-[100%] w-[85%] rounded-3xl' alt={'exercise image'} />
                 </div>
               ))}
             </div>
@@ -72,13 +55,7 @@ function MainExerciseContent() {
             <div className='grid grid-cols-5 overflow-x-auto gap-5 scrollbar-hide w-[100vw] drop-shadow-2xl justify-between mb-16'>
               {exercise.videos.map((video: string) => (
                 <div className='text-left my-12 mx-8'>
-                  <ReactPlayer
-                    key={video}
-                    volume={100}
-                    width='100'
-                    url={video}
-                    controls
-                  ></ReactPlayer>
+                  <ReactPlayer key={video} volume={100} width='100' url={video} controls></ReactPlayer>
                 </div>
               ))}
             </div>

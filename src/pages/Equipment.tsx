@@ -6,6 +6,7 @@ import Spinner from '../ui/Spinner.tsx';
 import { IExercise } from '../services/apiExercises.ts';
 import { useEquipment } from '../features/Equipments/useEquipment.tsx';
 import MainEquipment from '../features/Equipments/MainEquipment.tsx';
+import Navbar from '../ui/Navbar.tsx';
 
 function Equipment() {
   const { equipment } = useParams();
@@ -24,6 +25,7 @@ function Equipment() {
 
   return (
     <>
+      <Navbar />
       <div className='dark:bg-black grid grid-cols-5 h-full'>
         <Sidebar />
         <MainEquipment Equipment={Equipment} />

@@ -6,6 +6,7 @@ import Error from './Error.tsx';
 import Spinner from '../ui/Spinner.tsx';
 import { useBodyPart } from '../features/body-parts/useBodyPart.tsx';
 import { IExercise } from '../services/apiExercises.ts';
+import Navbar from '../ui/Navbar.tsx';
 
 function BodyPart() {
   const { bodypart } = useParams();
@@ -23,6 +24,7 @@ function BodyPart() {
 
   return (
     <>
+      <Navbar />
       <div className='dark:bg-black grid grid-cols-5 h-full'>
         <Sidebar />
         <MainBodyPart bodyPart={bodyPart} />

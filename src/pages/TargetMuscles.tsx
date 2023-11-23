@@ -4,6 +4,7 @@ import Sidebar from '../ui/Sidebar.tsx';
 import MainTargetMuscles from '../features/TargetMuscle/MainTargetMuscles.tsx';
 import { useTargetMuscles } from '../features/TargetMuscle/useTargetMuscles.tsx';
 import Footer from '../ui/Footer.tsx';
+import Navbar from '../ui/Navbar.tsx';
 
 function TargetMuscles() {
   const { isLoading, error } = useTargetMuscles();
@@ -13,6 +14,7 @@ function TargetMuscles() {
 
   return (
     <>
+      <Navbar />
       <div className='grid grid-cols-5 h-[87vh]'>
         <Sidebar />
         <MainTargetMuscles />
