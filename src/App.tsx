@@ -11,7 +11,7 @@ import Exercise from './pages/Exercise.tsx';
 import Login from './ui/Login.tsx';
 import Register from './ui/Register.tsx';
 import Routines from './pages/Routines.tsx';
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
+import { ClerkProvider } from '@clerk/clerk-react';
 import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
 import BodyPart from './pages/BodyPart.tsx';
@@ -45,12 +45,7 @@ function App() {
                 path='/exercises'
                 element={
                   <>
-                    <SignedIn>
-                      <Exercises />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Exercises />
                   </>
                 }
               />
@@ -58,12 +53,7 @@ function App() {
                 path='/equipments'
                 element={
                   <>
-                    <SignedIn>
-                      <Equipments />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Equipments />
                   </>
                 }
               />
@@ -71,12 +61,7 @@ function App() {
                 path='/equipments/:equipment'
                 element={
                   <>
-                    <SignedIn>
-                      <Equipment />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Equipment />
                   </>
                 }
               />
@@ -84,12 +69,7 @@ function App() {
                 path='/target-muscle'
                 element={
                   <>
-                    <SignedIn>
-                      <TargetMuscles />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <TargetMuscles />
                   </>
                 }
               />
@@ -97,12 +77,7 @@ function App() {
                 path='/target-muscle/:targetMuscle'
                 element={
                   <>
-                    <SignedIn>
-                      <TargetMuscle />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <TargetMuscle />
                   </>
                 }
               />
@@ -110,12 +85,7 @@ function App() {
                 path='/body-parts'
                 element={
                   <>
-                    <SignedIn>
-                      <BodyParts />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <BodyParts />
                   </>
                 }
               />
@@ -123,12 +93,7 @@ function App() {
                 path='/body-parts/:bodypart'
                 element={
                   <>
-                    <SignedIn>
-                      <BodyPart />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <BodyPart />
                   </>
                 }
               />
@@ -136,12 +101,7 @@ function App() {
                 path='/exercises/:exerciseId'
                 element={
                   <>
-                    <SignedIn>
-                      <Exercise />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Exercise />
                   </>
                 }
               />
@@ -149,12 +109,7 @@ function App() {
                 path='/routine-category'
                 element={
                   <>
-                    <SignedIn>
-                      <RoutineCategory />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <RoutineCategory />
                   </>
                 }
               />
@@ -162,12 +117,7 @@ function App() {
                 path='/routines/:routineName'
                 element={
                   <>
-                    <SignedIn>
-                      <Routines />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Routines />
                   </>
                 }
               />
@@ -175,12 +125,7 @@ function App() {
                 path='/routines/routine/:id'
                 element={
                   <>
-                    <SignedIn>
-                      <Routine />
-                    </SignedIn>
-                    <SignedOut>
-                      <RedirectToSignIn />
-                    </SignedOut>
+                    <Routine />
                   </>
                 }
               />
