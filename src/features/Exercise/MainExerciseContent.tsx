@@ -25,6 +25,7 @@ function MainExerciseContent() {
           </div>
           <div className='col-span-1 items-center my-auto mx-auto'>
             <img
+              loading={'lazy'}
               alt='exercise gif'
               className=' rounded-3xl shadow shadow-amber-900/100 drop-shadow-2xl '
               src={exercise.gifUrl}
@@ -40,7 +41,13 @@ function MainExerciseContent() {
             <div className='grid grid-cols-5 overflow-x-auto gap-5 scrollbar-hide w-[100vw] drop-shadow-2xl justify-between mb-10'>
               {exercise.images.map((image: string) => (
                 <div className='text-left my-12'>
-                  <img key={image} src={image} className='h-[100%] w-[85%] rounded-3xl' alt={'exercise image'} />
+                  <img
+                    loading={'lazy'}
+                    key={image}
+                    src={image}
+                    className='h-[100%] w-[85%] rounded-3xl'
+                    alt={'exercise image'}
+                  />
                 </div>
               ))}
             </div>

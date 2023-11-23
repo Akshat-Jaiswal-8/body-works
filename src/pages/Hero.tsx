@@ -5,7 +5,7 @@ import Navbar from '../ui/Navbar.tsx';
 function Hero() {
   return (
     <>
-      <div className="dark:bg-[url('/hero_dark.jpg')] bg-[url('/hero_light.jpg')] bg-cover">
+      <div className="dark:bg-[url('/hero_dark.webp')] bg-[url('/hero_light.webp')] bg-cover">
         <Navbar />
         <div className='pt-16 pr-0 pl-0 pb-8 '>
           <div className='max-w-7xl my-[3rem] mx-auto  py-0 text-center px-3.5 items-center gap-24'>
