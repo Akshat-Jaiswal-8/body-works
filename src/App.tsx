@@ -11,7 +11,6 @@ import Exercise from './pages/Exercise.tsx';
 import Login from './ui/Login.tsx';
 import Register from './ui/Register.tsx';
 import Routines from './pages/Routines.tsx';
-import { ClerkProvider } from '@clerk/clerk-react';
 import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
 import BodyPart from './pages/BodyPart.tsx';
@@ -25,115 +24,109 @@ function App() {
       },
     },
   });
-  if (!import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY) {
-    throw new Error('Missing Publishable Key');
-  }
-  const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
 
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <ClerkProvider publishableKey={clerkPubKey}>
-        <div className='dark:bg-black'>
-          <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Hero />} />
-              <Route path='/*' element={<Login />} />
-              <Route path='/sign-in' element={<Login />} />
-              <Route path='/sign-up' element={<Register />} />
-              <Route
-                path='/exercises'
-                element={
-                  <>
-                    <Exercises />
-                  </>
-                }
-              />
-              <Route
-                path='/equipments'
-                element={
-                  <>
-                    <Equipments />
-                  </>
-                }
-              />
-              <Route
-                path='/equipments/:equipment'
-                element={
-                  <>
-                    <Equipment />
-                  </>
-                }
-              />
-              <Route
-                path='/target-muscle'
-                element={
-                  <>
-                    <TargetMuscles />
-                  </>
-                }
-              />
-              <Route
-                path='/target-muscle/:targetMuscle'
-                element={
-                  <>
-                    <TargetMuscle />
-                  </>
-                }
-              />
-              <Route
-                path='/body-parts'
-                element={
-                  <>
-                    <BodyParts />
-                  </>
-                }
-              />
-              <Route
-                path='/body-parts/:bodypart'
-                element={
-                  <>
-                    <BodyPart />
-                  </>
-                }
-              />
-              <Route
-                path='/exercises/:exerciseId'
-                element={
-                  <>
-                    <Exercise />
-                  </>
-                }
-              />
-              <Route
-                path='/routine-category'
-                element={
-                  <>
-                    <RoutineCategory />
-                  </>
-                }
-              />
-              <Route
-                path='/routines/:routineName'
-                element={
-                  <>
-                    <Routines />
-                  </>
-                }
-              />
-              <Route
-                path='/routines/routine/:id'
-                element={
-                  <>
-                    <Routine />
-                  </>
-                }
-              />
-              <Route path='*' element={<PageNotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
-      </ClerkProvider>
+      <div className='dark:bg-black'>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Hero />} />
+            <Route path='/*' element={<Login />} />
+            <Route path='/sign-in' element={<Login />} />
+            <Route path='/sign-up' element={<Register />} />
+            <Route
+              path='/exercises'
+              element={
+                <>
+                  <Exercises />
+                </>
+              }
+            />
+            <Route
+              path='/equipments'
+              element={
+                <>
+                  <Equipments />
+                </>
+              }
+            />
+            <Route
+              path='/equipments/:equipment'
+              element={
+                <>
+                  <Equipment />
+                </>
+              }
+            />
+            <Route
+              path='/target-muscle'
+              element={
+                <>
+                  <TargetMuscles />
+                </>
+              }
+            />
+            <Route
+              path='/target-muscle/:targetMuscle'
+              element={
+                <>
+                  <TargetMuscle />
+                </>
+              }
+            />
+            <Route
+              path='/body-parts'
+              element={
+                <>
+                  <BodyParts />
+                </>
+              }
+            />
+            <Route
+              path='/body-parts/:bodypart'
+              element={
+                <>
+                  <BodyPart />
+                </>
+              }
+            />
+            <Route
+              path='/exercises/:exerciseId'
+              element={
+                <>
+                  <Exercise />
+                </>
+              }
+            />
+            <Route
+              path='/routine-category'
+              element={
+                <>
+                  <RoutineCategory />
+                </>
+              }
+            />
+            <Route
+              path='/routines/:routineName'
+              element={
+                <>
+                  <Routines />
+                </>
+              }
+            />
+            <Route
+              path='/routines/routine/:id'
+              element={
+                <>
+                  <Routine />
+                </>
+              }
+            />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </QueryClientProvider>
   );
 }
