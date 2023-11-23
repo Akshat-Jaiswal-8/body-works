@@ -11,15 +11,9 @@ import Exercise from './pages/Exercise.tsx';
 import Login from './ui/Login.tsx';
 import Register from './ui/Register.tsx';
 import Routines from './pages/Routines.tsx';
-import {
-  ClerkProvider,
-  RedirectToSignIn,
-  SignedIn,
-  SignedOut,
-} from '@clerk/clerk-react';
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
 import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
-import Navbar from './ui/Navbar.tsx';
 import BodyPart from './pages/BodyPart.tsx';
 import Equipment from './pages/Equipment.tsx';
 import TargetMuscle from './pages/TargetMuscle.tsx';
@@ -42,7 +36,6 @@ function App() {
       <ClerkProvider publishableKey={clerkPubKey}>
         <div className='dark:bg-black'>
           <BrowserRouter>
-            <Navbar />
             <Routes>
               <Route path='/' element={<Hero />} />
               <Route path='/*' element={<Login />} />

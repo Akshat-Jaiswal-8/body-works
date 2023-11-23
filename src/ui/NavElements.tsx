@@ -9,7 +9,7 @@ function NavElements(props: props) {
     <>
       <Link
         to={'/'}
-        className='text-black dark:text-gray-200 dark:hover:text-pink-500 hover:text-light-primary-hover-color font-semibold cursor-pointer font-poppins hover:text-primary-hover-color transition-all duration-300 ease-in-out m-3'
+        className='text-amber-700 dark:text-gray-200 dark:hover:text-pink-500 hover:text-light-primary-hover-color font-semibold cursor-pointer font-poppins hover:text-primary-hover-color transition-all duration-300 ease-in-out m-3'
       >
         {title}
       </Link>
