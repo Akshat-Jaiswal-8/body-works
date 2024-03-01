@@ -6,12 +6,8 @@ interface IRoutineCategory {
 }
 
 const getRoutineCategories = async () => {
-  const routineCategory = await axios.get(
-    `https://body-works.vercel.app/api/routine/filter`,
-  );
-  const allRoutineCategory = routineCategory.data.category;
-  console.log(allRoutineCategory);
-  return allRoutineCategory;
+  const routineCategory = await axios.get(`https://body-works.vercel.app/api/routine/filter`);
+  return routineCategory.data.category;
 };
 
 export { getRoutineCategories };

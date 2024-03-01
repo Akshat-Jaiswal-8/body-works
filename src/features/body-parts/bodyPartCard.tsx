@@ -16,7 +16,7 @@ const bodyPartCard = ({ gif, title, blog, id }: IProps) => {
       <div className='hover:scale-110 transition-all duration-200 bg-bg-card-light-primary-color max-w-sm mx-12 overflow-y-scroll scrollbar-hide h-80 dark:bg-gray-900 mt-10 border dark:border-gray-800 border-border-light-primary-color rounded-xl overflow-hidden'>
         <div className='flex flex-col gap-3'>
           <a href={`/exercises/${id}`}>
-            <img src={gif} className='w-full h-48' alt='exercise image' />
+            <img loading={'lazy'} src={gif} className='w-full h-48' alt='exercise image' />
           </a>
           <div className='p-6 text-left'>
             <h2 className='dark:text-white text-gray-800 text-left font-semibold text-lg mb-4'>{title}</h2>

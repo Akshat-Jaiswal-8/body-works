@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html{
   scroll-behavior: smooth;
   @apply dark:bg-black
 }
 body{
   @apply dark:bg-black bg-[#FFFBF5]
+}
+
+::selection{
+  color: white;
+  background-color: #db2777;
 }
 
 
@@ -44,16 +50,6 @@ body{
 .workout-plan-markdown-content td:last-child{
   @apply px-4 py-4 text-left border-dashed border-t border-amber-900 dark:border-gray-700;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

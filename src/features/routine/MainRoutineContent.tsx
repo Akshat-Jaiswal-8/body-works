@@ -22,7 +22,12 @@ function MainRoutineContent({ routine, category }: IRoutine) {
               </div>
             </div>
             <div className='col-span-1 items-center mx-4'>
-              <img alt='exercise gif' className='rounded-3xl h-full' src={routine.routine_imageUrl}></img>
+              <img
+                loading={'lazy'}
+                alt='exercise gif'
+                className='rounded-3xl h-full'
+                src={routine.routine_imageUrl}
+              ></img>
             </div>
           </div>
           <div className='text-white mb-28 flex border-t border-b border-dotted border-amber-900 dark:border-gray-500 justify-evenly'>
