@@ -4,14 +4,9 @@ import { IoBody } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 function Sidebar(): JSX.Element {
-  const theme: string | null = localStorage?.getItem('theme');
   return (
     <aside className='px-8 py-6 bg-inherit dark:bg-black gap-3 col-span-1 flex flex-col border-border-light-primary-color border-dotted dark:border-gray-700 '>
-      {theme === 'dark' ? (
-        <img loading='lazy' src='/sidebar_dark.webp' className='rounded-full' alt='logo' />
-      ) : (
-        <img loading={'lazy'} src='/sidebar_light.webp' className='rounded-full' alt='logo' />
-      )}
+      <img loading='eager' src={'/sidebar_dark.webp'} className='rounded-full' alt='logo' />
       <nav className='block'>
         <ul className='cursor-pointer flex flex-col gap-6 items-center'>
           <li className='w-full group'>

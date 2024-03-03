@@ -1,4 +1,6 @@
 import { BsArrowRight } from 'react-icons/bs';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface IProps {
   gif: string;
@@ -16,8 +18,12 @@ const ExerciseCard = ({ gif, title, blog, id }: IProps) => {
       <div className='hover:-translate-y-6 transition-all duration-300 bg-bg-card-light-primary-color max-w-sm mx-12 overflow-y-scroll scrollbar-hide h-80 dark:bg-gray-900 mt-10 border dark:border-gray-800 border-border-light-primary-color rounded-xl overflow-hidden'>
         <div className='flex flex-col gap-3'>
           <a href={`/exercises/${id}`}>
-            <img loading={'lazy'} src={gif} className='w-full h-48' alt='exercise image' />
-          </a>
+            {gif ? (
+              <img loading={'lazy'} src={gif} className='w-full h-48' alt='exercise image' />
+            ) : (
+              <Skeleton className='w-full h-48' />
+            )}
+        </a>
           <div className='p-6 text-left'>
             <h2 className='dark:text-white text-gray-800 text-left font-semibold text-lg mb-4'>{title}</h2>
             <p className='text-gray-700 dark:text-white h-fit mb-6'>{index && blog.slice(index + 11, 150) + '...'}</p>
