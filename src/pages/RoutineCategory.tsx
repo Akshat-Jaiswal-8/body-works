@@ -3,8 +3,6 @@ import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainRoutineCategory from '../features/routine-category/MainRoutineCategory.tsx';
 import { useRoutinesCategory } from '../features/routine-category/useRoutinesCategory.tsx';
-import Footer from '../ui/Footer.tsx';
-import Navbar from '../ui/Navbar.tsx';
 
 function RoutineCategory() {
   const { isLoading, error } = useRoutinesCategory();
@@ -14,13 +12,10 @@ function RoutineCategory() {
 
   return (
     <>
-      <Navbar />
-      <div className='grid grid-cols-5 h-[87vh] '>
+      <div className='h-full '>
         <Sidebar />
         <MainRoutineCategory />
-        <div className='col-span-5'>
-          <Footer />
-        </div>
+        <div className='col-span-5'></div>
       </div>
     </>
   );

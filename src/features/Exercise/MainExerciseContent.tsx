@@ -10,7 +10,7 @@ function MainExerciseContent() {
 
   return (
     <>
-      <div className='text-white col-span-4  dark:border-gray-700 border-dotted'>
+      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
         <div className='grid grid-cols-2 gap-5 justify-center mt-16 mx-16 mb-28'>
           <div className='col-span-1 gap-16 py-12 border-double border-amber-900 dark:border-pink-500 border-b border-t'>
             <div className='flex flex-col gap-8'>

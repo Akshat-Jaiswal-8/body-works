@@ -8,7 +8,7 @@ import { Fragment } from 'react';
 function MainRoutineContent({ routine, category }: IRoutine) {
   return (
     <>
-      <div className='text-white col-span-4'>
+      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
         <div className='mx-16'>
           <div className='grid grid-cols-2 gap-5 justify-center mt-14 mb-28'>
             <div className='col-span-1 gap-16 py-12 border-double dark:border-pink-500 border-amber-900 border-b border-t'>
@@ -33,12 +33,13 @@ function MainRoutineContent({ routine, category }: IRoutine) {
           <div className='text-white mb-28 flex border-t border-b border-dotted border-amber-900 dark:border-gray-500 justify-evenly'>
             {category.map((eachCategory: string) => {
               return (
-                <span
+                <a
+                  href={`http://localhost:5173/routines/${eachCategory}`}
                   key={eachCategory}
                   className='my-6 bg-clip-text text-transparent bg-gradient-to-r from-amber-800 to-amber-600 dark:from-pink-600 dark:to-violet-400'
                 >
                   {eachCategory}
-                </span>
+                </a>
               );
             })}
           </div>

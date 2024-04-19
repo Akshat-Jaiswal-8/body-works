@@ -1,4 +1,5 @@
 import { BsArrowRight } from 'react-icons/bs';
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card.tsx';
 
 interface IRoutineCardProps {
   routine_title: string;
@@ -10,27 +11,40 @@ interface IRoutineCardProps {
 const RoutineCard = ({ routine_title, routine_description, routine_imageUrl, id }: IRoutineCardProps) => {
   return (
     <>
-      <div className='hover:scale-110 transition-all duration-200 bg-bg-card-light-primary-color max-w-sm mx-12 overflow-y-scroll scrollbar-hide h-80 dark:bg-gray-900 mt-10 border dark:border-gray-800 border-border-light-primary-color rounded-xl overflow-hidden'>
-        <div className='flex flex-col gap-3'>
-          <a href={`/routines/routine/${id}`}>
-            <img loading={'lazy'} src={routine_imageUrl} className='w-full h-48' alt='exercise image' />
-          </a>
-
-          <div className='p-6 text-left'>
-            <h2 className='dark:text-white text-gray-800 text-left font-semibold text-lg mb-8'>{routine_title}</h2>
-            <p className='text-gray-700 dark:text-white h-fit mb-6'>{routine_description}</p>
-            <a
-              href={`/exercises`}
-              className='flex dark:text-white dark:hover:text-pink-500 hover:text-primary-hover-color text-gray-800 transition-all duration-300 text-center items-center'
-            >
-              More
-              <span className='ml-1'>
+      <CardContainer className='font-poppins'>
+        <CardBody
+          className='bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.2] w-full sm:w-[30rem] h-auto rounded-xl p-6 border
+       hover:-translate-y-6 transition-all duration-300 max-w-[20rem] mx-12 overflow-y-scroll scrollbar-hide mt-10 dark:border-gray-800 overflow-hidden shadow-lg shadow-amber-900 dark:shadow-pink-500'
+        >
+          <CardItem translateZ='50' className='text-xl font-bold text-gray-800 dark:text-white'>
+            {routine_title}
+          </CardItem>
+          <CardItem as='p' translateZ='60' className='text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300'>
+            {routine_description}
+          </CardItem>
+          <CardItem translateZ='100' rotateX={20} rotateZ={-10} className='w-full mt-4'>
+            <img
+              src={routine_imageUrl}
+              height='1000'
+              width='1000'
+              className='h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl'
+              alt='thumbnail'
+            />
+          </CardItem>
+          <div className='flex justify-between items-center mt-20'>
+            <a href={`/routines/routine/${id}`}>
+              <CardItem
+                translateZ={20}
+                translateX={40}
+                as='button'
+                className='px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold'
+              >
                 <BsArrowRight />
-              </span>
+              </CardItem>
             </a>
           </div>
-        </div>
-      </div>
+        </CardBody>
+      </CardContainer>
     </>
   );
 };

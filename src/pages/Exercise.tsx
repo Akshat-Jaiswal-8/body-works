@@ -4,8 +4,6 @@ import Spinner from '../ui/Spinner.tsx';
 import Error from './Error.tsx';
 import Sidebar from '../ui/Sidebar.tsx';
 import MainExerciseContent from '../features/Exercise/MainExerciseContent.tsx';
-import Footer from '../ui/Footer.tsx';
-import Navbar from '../ui/Navbar.tsx';
 
 const Exercise = () => {
   const { exerciseId } = useParams();
@@ -16,13 +14,9 @@ const Exercise = () => {
 
   return (
     <>
-      <Navbar />
-      <div className='grid grid-cols-5 h-[87vh]'>
+      <div className='h-full'>
         <Sidebar />
         <MainExerciseContent />
-        <div className='col-span-5'>
-          <Footer />
-        </div>
       </div>
     </>
   );

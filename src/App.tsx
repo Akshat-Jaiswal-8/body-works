@@ -8,14 +8,15 @@ import Equipments from './pages/Equipments.tsx';
 import TargetMuscles from './pages/TargetMuscles.tsx';
 import BodyParts from './pages/BodyParts.tsx';
 import Exercise from './pages/Exercise.tsx';
-import Login from './ui/Login.tsx';
-import Register from './ui/Register.tsx';
 import Routines from './pages/Routines.tsx';
 import RoutineCategory from './pages/RoutineCategory.tsx';
 import Routine from './features/routine/Routine.tsx';
 import BodyPart from './pages/BodyPart.tsx';
 import Equipment from './pages/Equipment.tsx';
 import TargetMuscle from './pages/TargetMuscle.tsx';
+import { ThemeProvider } from '@/components/theme-provider.tsx';
+import Navbar from '@/ui/Navbar.tsx';
+
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -28,18 +29,24 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <div className='dark:bg-black'>
+      <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path='/' element={<Hero />} />
-            <Route path='/*' element={<Login />} />
-            <Route path='/sign-in' element={<Login />} />
-            <Route path='/sign-up' element={<Register />} />
             <Route
               path='/exercises'
               element={
                 <>
                   <Exercises />
+                </>
+              }
+            />
+            <Route
+              path='/exercises/:exerciseId'
+              element={
+                <>
+                  <Exercise />
                 </>
               }
             />
@@ -91,14 +98,7 @@ function App() {
                 </>
               }
             />
-            <Route
-              path='/exercises/:exerciseId'
-              element={
-                <>
-                  <Exercise />
-                </>
-              }
-            />
+
             <Route
               path='/routine-category'
               element={
@@ -126,7 +126,7 @@ function App() {
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
-      </div>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

@@ -6,8 +6,6 @@ export interface ITargetMuscles {
 }
 
 export const getTargetMuscles = async () => {
-  const targetMuscles = await axios.get(
-    'https://body-works.vercel.app/api/targetmuscles',
-  );
+  const targetMuscles = await axios.get('https://body-works.vercel.app/api/targetmuscles');
   return targetMuscles.data.data;
 };

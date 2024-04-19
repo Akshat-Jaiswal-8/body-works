@@ -6,8 +6,6 @@ import Sidebar from '../../ui/Sidebar.tsx';
 
 import MainRoutineContent from './MainRoutineContent.tsx';
 import { IRoutine } from '../routines/MainRoutines.tsx';
-import Footer from '../../ui/Footer.tsx';
-import Navbar from '../../ui/Navbar.tsx';
 
 function Routine() {
   const { id: routineId } = useParams();
@@ -19,13 +17,10 @@ function Routine() {
 
   return (
     <>
-      <Navbar />
-      <div className='grid grid-cols-5 h-[87vh]'>
+      <div className='h-full'>
         <Sidebar />
         <MainRoutineContent routine={routine.routine} category={routine.category} id={routine.id} />
-        <div className='col-span-5'>
-          <Footer />
-        </div>
+        <div className='col-span-5'></div>
       </div>
     </>
   );

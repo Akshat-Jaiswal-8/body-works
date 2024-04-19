@@ -8,7 +8,7 @@ function SearchBar(): JSX.Element {
       <form className='ml-52 mr-72 px-3 rounded-xl border border-border-light-primary-color dark:border-gray-700 text-center flex items-center justify-between'>
         <input
           placeholder='Search by name'
-          className='text-amber-700 bg-transparent dark:text-pink-500 font-poppins overflow-x-scroll outline-0 rounded-xl py-3 w-3/4'
+          className='text-amber-700 bg-transparent dark:text-pink-500 font-poppins focus:outline-none overflow-x-scroll rounded-xl py-3 w-3/4'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

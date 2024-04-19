@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getTargetMuscle } from '../../services/apiTargetMuscle.ts';
+import { getTargetMuscle } from '@/services/apiTargetMuscle.ts';
 
 export const useTargetMuscle = (targetMuscle: string | undefined) => {
   const {

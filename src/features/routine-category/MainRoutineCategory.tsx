@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import SearchBar from '../../ui/SearchBar.tsx';
 import { useRoutinesCategory } from './useRoutinesCategory.tsx';
 import RoutineCategoryCard from './RoutineCategoryCard.tsx';
@@ -8,10 +6,10 @@ function MainRoutineCategory() {
   const { routineCategory } = useRoutinesCategory();
   return (
     <>
-      <div className='col-span-4 dark:bg-black my-6'>
+      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
         <SearchBar />
-        <div className='grid grid-cols-3'>
-          {routineCategory.map((routineCategory) => {
+        <div className='grid grid-cols-3 gap-8 mx-12 mt-10'>
+          {routineCategory.map((routineCategory: { title: string; imageUrl: string }) => {
             return (
               <RoutineCategoryCard
                 key={routineCategory.title}

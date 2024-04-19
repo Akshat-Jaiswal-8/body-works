@@ -5,6 +5,7 @@ import RoutineCard from './RoutineCard.tsx';
 import useRoutine from './useRoutines.tsx';
 import Spinner from '../../ui/Spinner.tsx';
 import SearchBar from '../../ui/SearchBar.tsx';
+import Error from '@/pages/Error.tsx';
 
 export interface IRoutine {
   category: string[];
@@ -31,21 +32,14 @@ function MainRoutines() {
   const searchName: string | undefined = routineName?.replace(/ /g, '%20');
   const { isLoading, routines, error } = useRoutine({ searchName });
 
-  if (isLoading)
-    return (
-      <div className='text-center mx-auto w-full col-span-4'>
-        <Spinner />
-      </div>
-    );
-  if (error) {
-    return <Error />;
-  }
+  if (isLoading) return <Spinner />;
+  if (error) return <Error />;
 
   return (
     <>
-      <div className='col-span-4 dark:bg-black py-6'>
+      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
         <SearchBar />
-        <div className='grid grid-cols-3 w-full'>
+        <div className='grid grid-cols-3 gap-5'>
           {routines.map((eachroutine: IRoutine) => {
             return (
               <RoutineCard
