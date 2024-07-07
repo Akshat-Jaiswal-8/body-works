@@ -5,7 +5,7 @@ interface IExerciseHeadersProps {
 
 const ExerciseHeaders = ({ title, content }: IExerciseHeadersProps) => {
   return (
-    <h2 className='text-gray-200 text-xl'>
+    <h2 className='text-gray-200 xs:text-lg xl:text-xl'>
       <span className='text-amber-800 dark:text-white font-bold mr-2  inline-flex items-center'>
         {title}
         <span className='ml-2'>:</span>

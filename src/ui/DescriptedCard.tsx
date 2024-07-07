@@ -13,10 +13,10 @@ export const DescriptedCard = ({ gif, title, blog, id }: IDescriptedCardProps) =
   const index: number | undefined = match?.index;
   return (
     <div>
-      <CardContainer className='font-poppins'>
+      <CardContainer className='font-poppins xs:max-w-[16rem] xs:h-auto sm:max-w-[30rem] md:max-w-[30rem] lg:max-w-[20rem]'>
         <CardBody
-          className='bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.2] w-full sm:w-[30rem] h-auto rounded-xl p-6 border
-       hover:-translate-y-6 transition-all duration-300 max-w-[20rem] mx-12 overflow-y-scroll scrollbar-hide mt-10 dark:border-gray-800 overflow-hidden shadow-lg shadow-amber-900 dark:shadow-pink-500'
+          className='bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.2] h-auto rounded-xl p-6 border
+       hover:-translate-y-6 transition-all duration-300 overflow-y-scroll scrollbar-hide mt-10 dark:border-gray-800 overflow-hidden shadow-lg shadow-amber-900 dark:shadow-pink-500 flex flex-col justify-center items-center'
         >
           <CardItem translateZ='50' className='text-xl font-bold text-gray-800 dark:text-white'>
             {title}

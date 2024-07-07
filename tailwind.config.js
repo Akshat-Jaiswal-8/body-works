@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 import tailwindcss_animate from 'tailwindcss-animate';
-import colors from 'tailwindcss/colors';
 
 import svgToDataUri from 'mini-svg-data-uri';
 
@@ -14,11 +13,12 @@ export default {
     container: {
       center: true,
       padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
     },
     extend: {
+      screens: {
+        'xs': '320px',
+        '2xl': '1400px',
+      },
       gridTemplateColumns: {
         'col-lg': '58% 42%',
       },
@@ -90,6 +90,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwind-scrollbar-hide'),
     addVariablesForColors,
     tailwindcss_animate,
     function ({ matchUtilities, theme }) {

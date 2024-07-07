@@ -7,17 +7,25 @@ import Error from '@/pages/Error.tsx';
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination.tsx';
+import { useState } from 'react';
 
 function MainExercises() {
   const limit = 9;
-  const page = 1;
+  const [page, setPage] = useState(1);
+
   const { exercises } = useExercises(limit, page);
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
+  };
 
   const { isLoading, error } = useExercises();
   if (isLoading) return <Spinner />;
@@ -25,9 +33,9 @@ function MainExercises() {
 
   return (
     <>
-      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
+      <div className='xs:mx-auto sm:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] xs:mt-[120px] md:mt-[80px] '>
         <SearchBar />
-        <div className='grid grid-cols-3 mb-10 w-full'>
+        <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {exercises.map((exercise: IExercise) => {
             return (
               <ExerciseCard
@@ -43,24 +51,10 @@ function MainExercises() {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href='#' />
+              <PaginationPrevious onClick={handlePreviousPage} />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href='#'>1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href='#' isActive>
-                2
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href='#'>3</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href='#' />
+              <PaginationNext onClick={handleNextPage} />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

@@ -13,9 +13,9 @@ function MainBodyParts() {
 
   return (
     <>
-      <div className='w-[calc(100vw-20rem)] mt-[80px] ml-[20rem] my-6'>
+      <div className='md:mx-12 md:w-[calc(100vw-19.5rem)] md:ml-[19.5rem] mt-[80px] my-6'>
         <SearchBar />
-        <div className='grid grid-cols-3 gap-8 mx-12 mt-10'>
+        <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {bodyParts.map((bodyPart: IBodyPart) => {
             return <BodyPartsCard key={bodyPart.bodyPart} name={bodyPart.bodyPart} image={bodyPart.imageUrl} />;
           })}

@@ -1,22 +1,15 @@
-import Sidebar from '../ui/Sidebar.tsx';
-import { useParams } from 'react-router-dom';
-import { IExercise } from '../services/apiExercises.ts';
-import { useTargetMuscle } from '../features/TargetMuscle/useTargetMuscle.tsx';
-import MainTargetMuscle from '../features/TargetMuscle/MainTargetMuscle.tsx';
+import Sidebar from '@/ui/Sidebar.tsx';
+import MainTargetMuscle from '@/features/TargetMuscle/MainTargetMuscle.tsx';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 function TargetMuscle() {
-  const { targetMuscle } = useParams();
-  const {
-    TargetMuscle,
-  }: {
-    TargetMuscle: IExercise | undefined;
-  } = useTargetMuscle(targetMuscle);
+  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
 
   return (
     <>
       <div className='h-full'>
-        <Sidebar />
-        <MainTargetMuscle TargetMuscle={TargetMuscle} />
+        {!isSmallDevice && <Sidebar />}
+        <MainTargetMuscle />
       </div>
     </>
   );

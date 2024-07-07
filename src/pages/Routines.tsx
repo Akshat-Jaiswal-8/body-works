@@ -1,14 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-import MainRoutines from '../features/routines/MainRoutines.tsx';
-import Sidebar from '../ui/Sidebar.tsx';
+import MainRoutines from '@/features/routines/MainRoutines.tsx';
+import Sidebar from '@/ui/Sidebar.tsx';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 function Routines() {
+  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
+
   return (
     <>
       <div className='h-full'>
-        <Sidebar />
+        {!isSmallDevice && <Sidebar />}
         <MainRoutines />
       </div>
     </>

@@ -31,7 +31,7 @@ const RoutineCard = ({ routine_title, routine_description, routine_imageUrl, id 
               alt='thumbnail'
             />
           </CardItem>
-          <div className='flex justify-between items-center mt-20'>
+          <div className='flex justify-center items-center mt-10'>
             <a href={`/routines/routine/${id}`}>
               <CardItem
                 translateZ={20}
