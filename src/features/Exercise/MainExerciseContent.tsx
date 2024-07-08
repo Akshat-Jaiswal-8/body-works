@@ -17,7 +17,7 @@ function MainExerciseContent() {
   return (
     <>
       <div className='lg:w-[calc(100vw-20rem)] mt-[80px] md:ml-[19.5rem] my-6'>
-        <div className='grid lg:grid-cols-2 gap-5 justify-center mt-16 mx-16 md:mb-20 lg:mb-28'>
+        <div className='lg:grid lg:grid-cols-2 gap-5 justify-center mt-16 xs:mx-6 xs:mb-20 md:mb-20 lg:mb-28'>
           <div className='col-span-1 gap-16 xs:py-6 md:py-12 border-double border-amber-900 dark:border-pink-500 border-b border-t'>
             <div className='flex flex-col md:gap-4 lg:gap-8'>
               <h1 className='bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-poppins mb-4 text-left xs:text-3xl md:text-4xl xl:text-5xl font-bold'>
@@ -38,8 +38,8 @@ function MainExerciseContent() {
             ></img>
           </div>
         </div>
-        <div className='px-16 mb-12'>
-          <h1 className='bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-bold text-xl'>
+        <div className='xs:mx-6 mx-16 mb-12'>
+          <h1 className='lg:text-3xl xs:text-xl dark:text-gray-200 underline underline-offset-8 decoration-gray-200 from-amber-800 to-amber-500 font-bold'>
             Reference Images
             <span className='ml-2'>:</span>
           </h1>
@@ -59,8 +59,8 @@ function MainExerciseContent() {
             </div>
           </div>
         </div>
-        <div className='px-16 xs:mb-20 lg:mb-12'>
-          <h1 className='bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-bold text-xl'>
+        <div className='xs:mx-6 mx-16 mb-12'>
+          <h1 className='lg:text-3xl xs:text-xl dark:text-gray-200 underline underline-offset-8 decoration-gray-200 from-amber-800 to-amber-500 font-bold'>
             Reference Videos
             <span className='ml-2'>:</span>
           </h1>
@@ -73,7 +73,7 @@ function MainExerciseContent() {
           </div>
         </div>
 
-        <div className='text-left px-16 mb-16'>
+        <div className='text-left xs:mx-6 mb-16'>
           <div
             className='[all-unset] dark:text-gray-200 text-amber-800 border rounded-2xl dark:border-gray-700 border-amber-700 p-4 markdown-content'
             dangerouslySetInnerHTML={{
