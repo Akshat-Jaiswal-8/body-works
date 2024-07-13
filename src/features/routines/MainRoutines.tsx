@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import RoutineCard from './RoutineCard.tsx';
-import Spinner from '../../ui/Spinner.tsx';
-import SearchBar from '../../ui/SearchBar.tsx';
+import Spinner from '@/ui/Spinner.tsx';
 import Error from '@/pages/Error.tsx';
 import useRoutines from './useRoutines.tsx';
 import { useState } from 'react';
@@ -54,8 +53,8 @@ function MainRoutines() {
 
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-19.5rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        <SearchBar />
+      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
+        {/*<SearchBar />*/}
         <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {routines.map((eachroutine: IRoutine) => {
             return (

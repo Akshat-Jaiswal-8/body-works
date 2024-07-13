@@ -1,4 +1,3 @@
-import SearchBar from '@/ui/SearchBar.tsx';
 import { IExercise } from '@/services/apiExercises.ts';
 import TargetMuscleCard from './TargetMuscleCard.tsx';
 import Spinner from '@/ui/Spinner.tsx';
@@ -39,8 +38,8 @@ function MainTargetMuscle() {
 
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-19.5rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        <SearchBar />
+      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
+        {/*<SearchBar />*/}
         <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {Object(TargetMuscle)?.map((targetMuscle: IExercise) => {
             return (

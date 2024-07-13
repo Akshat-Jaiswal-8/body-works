@@ -1,9 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import { useEquipments } from './useEquipments.tsx';
 import { IEquipments } from '@/services/apiEquipments.ts';
-import SearchBar from '../../ui/SearchBar.tsx';
 import Spinner from '@/ui/Spinner.tsx';
 import Error from '@/pages/Error.tsx';
 import { EquipmentsCard } from '@/features/Equipments/EquipmentsCard.tsx';
@@ -17,8 +13,8 @@ function MainEquipments() {
 
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-19.5rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        <SearchBar />
+      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
+        {/*<SearchBar />*/}
         <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {equipments.map((equipment: IEquipments) => {
             return <EquipmentsCard key={equipment.equipment} name={equipment.equipment} image={equipment.imageUrl} />;

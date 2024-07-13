@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Navbar from '@/ui/Navbar.tsx';
 import { useMediaQuery } from '@uidotdev/usehooks';
 
 export default Hero;
@@ -9,7 +8,6 @@ function Hero() {
 
   return (
     <>
-      <Navbar />
       <div className=' xs:mt-32 md:mt-30 w-full relative md:flex items-center justify-center'>
         <div className='container mx-auto items-center md:grid grid-cols-col-lg gap-4 justify-between'>
           <div className=''>
@@ -42,14 +40,13 @@ function Hero() {
           {!isSmallDevice && (
             <div
               className={
-                'lg:h-[31rem] xl:h-[36rem] mx-auto dark:border-4 shadow-2xl shadow-amber-900 dark:shadow-pink-600 border-amber-900 dark:border-pink-500 rounded-2xl'
+                'md:h-[30rem] xl:h-[35rem] mx-auto shadow-2xl shadow-amber-600 dark:shadow-pink-600 rounded-2xl'
               }
             >
               <img
                 src={'/hero.webp'}
-                className={
-                  'md:h-[30rem] xl:h-[35rem] dark:grayscale dark:border-0 border-4 border-amber-900 rounded-2xl'
-                }
+                className={'md:h-[30rem] xl:h-[35rem] dark:grayscale rounded-2xl'}
+                loading={'eager'}
                 alt={'man with dumbell'}
               />
             </div>

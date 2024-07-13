@@ -16,6 +16,7 @@ import Equipment from './pages/Equipment.tsx';
 import TargetMuscle from './pages/TargetMuscle.tsx';
 import { ThemeProvider } from '@/components/theme-provider.tsx';
 import Navbar from '@/ui/Navbar.tsx';
+import Transition from '@/Transition.tsx';
 
 function App() {
   const queryClient = new QueryClient({
@@ -33,12 +34,12 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path='/' element={<Hero />} />
+            <Route path='/' element={<Transition Component={<Hero />} />} />
             <Route
               path='/exercises'
               element={
                 <>
-                  <Exercises />
+                  <Transition Component={<Exercises />} />
                 </>
               }
             />
@@ -46,7 +47,7 @@ function App() {
               path='/exercises/:exerciseId'
               element={
                 <>
-                  <Exercise />
+                  <Transition Component={<Exercise />} />
                 </>
               }
             />
@@ -54,7 +55,7 @@ function App() {
               path='/equipments'
               element={
                 <>
-                  <Equipments />
+                  <Transition Component={<Equipments />} />
                 </>
               }
             />
@@ -62,7 +63,7 @@ function App() {
               path='/equipments/:equipment'
               element={
                 <>
-                  <Equipment />
+                  <Transition Component={<Equipment />} />
                 </>
               }
             />
@@ -70,7 +71,7 @@ function App() {
               path='/target-muscle'
               element={
                 <>
-                  <TargetMuscles />
+                  <Transition Component={<TargetMuscles />} />
                 </>
               }
             />
@@ -78,7 +79,7 @@ function App() {
               path='/target-muscle/:targetMuscle'
               element={
                 <>
-                  <TargetMuscle />
+                  <Transition Component={<TargetMuscle />} />
                 </>
               }
             />
@@ -86,7 +87,7 @@ function App() {
               path='/body-parts'
               element={
                 <>
-                  <BodyParts />
+                  <Transition Component={<BodyParts />} />
                 </>
               }
             />
@@ -94,7 +95,7 @@ function App() {
               path='/body-parts/:bodypart'
               element={
                 <>
-                  <BodyPart />
+                  <Transition Component={<BodyPart />} />
                 </>
               }
             />
@@ -103,7 +104,7 @@ function App() {
               path='/routine-category'
               element={
                 <>
-                  <RoutineCategory />
+                  <Transition Component={<RoutineCategory />} />={' '}
                 </>
               }
             />
@@ -111,7 +112,7 @@ function App() {
               path='/routines/:routineName'
               element={
                 <>
-                  <Routines />
+                  <Transition Component={<Routines />} />
                 </>
               }
             />
@@ -119,7 +120,7 @@ function App() {
               path='/routines/routine/:id'
               element={
                 <>
-                  <Routine />
+                  <Transition Component={<Routine />} />
                 </>
               }
             />

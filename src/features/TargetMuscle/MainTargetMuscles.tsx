@@ -1,9 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import TargetMusclesCard from './TargetMusclesCard.tsx';
 import { useTargetMuscles } from './useTargetMuscles.tsx';
 import { ITargetMuscles } from '@/services/apiTargetMuscles.ts';
-import SearchBar from '../../ui/SearchBar.tsx';
 import Spinner from '@/ui/Spinner.tsx';
 import Error from '@/pages/Error.tsx';
 
@@ -14,8 +11,8 @@ function MainTargetMuscles() {
   if (error) return <Error />;
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-19.5rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        <SearchBar />
+      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
+        {/*<SearchBar />*/}
         <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
           {targetMuscle.map((targetMuscle: ITargetMuscles) => {
             return (
