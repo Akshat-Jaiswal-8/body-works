@@ -1,7 +1,8 @@
-import Hero from './pages/Hero.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+import Hero from './pages/Hero.tsx';
 import PageNotFound from './pages/PageNotFound.tsx';
 import Exercises from './pages/Exercises.tsx';
 import Equipments from './pages/Equipments.tsx';
@@ -127,6 +128,7 @@ function App() {
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
+        <Analytics />
       </ThemeProvider>
     </QueryClientProvider>
   );
