@@ -1,8 +1,9 @@
 # Body Work
 
-[![Vercel](https://vercelbadge.vercel.app/api/akshatjaiswal/body-work)](https://body-work-akshat.vercel.app/)
+[![Vercel](https://vercelbadge.vercel.app/api/Akshat-Jaiswal-8/body-work)](https://body-works-akshat.vercel.app/)
 
-Welcome to **Body Work**! This platform is designed to help you track your fitness goals, workouts, and overall health
+Welcome to **Body Works**! This platform is designed to help you find the right set of exercises for your fitness goals,
+workouts, and overall health
 progress.
 
 ## Table of Contents
@@ -10,22 +11,23 @@ progress.
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## About
 
-**Body Work** is a comprehensive fitness tracking application built with Next.js and React. Whether you are a beginner
-or a fitness enthusiast, this platform provides all the tools you need to monitor your workouts, diet, and progress.
+**Body Work** is a comprehensive fitness application built with React.js and shadcnUI. Whether you are a beginner or a
+fitness enthusiast, this platform provides all the exercises you need to train your muscles , fat loss or maintaining
+consistency with the routines.
 
 ## Features
 
-- **User Authentication**: Secure login and registration.
-- **Workout Tracking**: Log your exercises and monitor your progress.
-- **Diet Management**: Track your daily calorie intake and nutrition.
-- **Progress Reports**: Visualize your progress with charts and graphs.
+- **1300+ Exercises**: You can browser over **1300+** exercises and can choose the best for you.
+- **Enhanced Filtering**: You can filter the exercises based on **30+** Equipments , **20** Target Muscles and **10**
+  Body Parts.
+- **Routine**: Users get over **600+** routines bases on **1** week to **52** weeks.
+- **Routine Filters**: You can filter the routines based on multiple parameters like Workout for Men , Workout for
+  women , beginner , intermediate , etc...
 - **Responsive Design**: Fully responsive and works on all devices.
 
 ## Installation
@@ -45,11 +47,6 @@ To run this project locally, follow these steps:
     npm install
     ```
 
-3. **Create a `.env.local` file and add your environment variables:**
-
-    ```
-    NEXT_PUBLIC_API_URL=<your-api-url>
-    ```
 
 4. **Run the development server:**
 
@@ -57,15 +54,9 @@ To run this project locally, follow these steps:
     npm run dev
     ```
 
-   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
-## Usage
 
-1. **Sign Up**: Create an account or log in if you already have one.
-2. **Set Goals**: Define your fitness goals and start tracking.
-3. **Log Workouts**: Add exercises, sets, reps, and weights to your workout log.
-4. **Track Diet**: Enter your meals and monitor your calorie intake.
-5. **View Progress**: Check your progress through detailed reports and analytics.
 
 ## Contributing
 
@@ -92,13 +83,9 @@ Contributions are welcome! If you have any ideas or suggestions, feel free to op
 
 5. **Open a pull request**
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For any inquiries, please contact:
 
-- Akshat Jaiswal - [akshat@example.com](mailto:akshat@example.com)
-- Project Link: [https://body-work-akshat.vercel.app/](https://body-work-akshat.vercel.app/)
+- Akshat Jaiswal - [Mail](mailto:akshatjaiswal.official@gmail.com)
+- Project Link: [Body Works](https://body-works-akshat.vercel.app)
