@@ -83,14 +83,13 @@ Contributions are welcome! If you have any ideas or suggestions, feel free to op
     ```
 
 5. **Open a pull request**
-   
+
 
 ## Body Works API
 
-You can access the body works API for free : 
-```
-https://github.com/Akshat-Jaiswal-8/body-works-api.git
-```
+You can access the body works API for free:
+[Body Works API](https://github.com/Akshat-Jaiswal-8/body-works-api.git)
+
 
 ## Contact
 
