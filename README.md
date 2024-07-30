@@ -1,6 +1,6 @@
 # Body Work
 
-[![Vercel](https://vercelbadge.vercel.app/api/Akshat-Jaiswal-8/body-work)](https://body-works-akshat.vercel.app/)
+[![Vercel](https://vercelbadge.vercel.app/api/Akshat-Jaiswal-8/body-works)](https://body-works-akshat.vercel.app/)
 
 Welcome to **Body Works**! This platform is designed to help you find the right set of exercises for your fitness goals,
 workouts, and overall health
@@ -38,8 +38,8 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    https://github.com/Akshat-Jaiswal-8/body-work.git
-    cd body-work
+    https://github.com/Akshat-Jaiswal-8/body-works.git
+    cd body-works
     ```
 
 2. **Install dependencies:**
