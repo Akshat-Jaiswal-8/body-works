@@ -5,7 +5,7 @@ export interface ITargetMuscles {
   imageUrl: string;
 }
 
-export const getTargetMuscles = async (): Promise<ITargetMuscles[]> => {
+export const getTargetMuscles = async () => {
   const targetMuscles = await axios.get("https://body-works-api.up.railway.app/targetMuscles");
-  return targetMuscles.data.data;
+  return targetMuscles?.data?.data;
 };

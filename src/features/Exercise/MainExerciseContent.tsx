@@ -39,7 +39,7 @@ function MainExerciseContent() {
           </div>
         </div>
         <div className="xs:mx-6 mx-16 mb-12">
-          <h1 className="lg:text-3xl xs:text-xl dark:text-gray-200 underline underline-offset-8 decoration-gray-200 from-amber-800 to-amber-500 font-bold">
+          <h1 className="lg:text-3xl xs:text-xl text-amber-700 dark:text-gray-200 underline underline-offset-8 decoration-amber-500 dark:decoration-gray-200 font-bold">
             Reference Images
             <span className="ml-2">:</span>
           </h1>
@@ -60,7 +60,7 @@ function MainExerciseContent() {
           </div>
         </div>
         <div className="xs:mx-6 mx-16 mb-12">
-          <h1 className="lg:text-3xl xs:text-xl dark:text-gray-200 underline underline-offset-8 decoration-gray-200 from-amber-800 to-amber-500 font-bold">
+          <h1 className="lg:text-3xl xs:text-xl text-amber-700 dark:text-gray-200 underline underline-offset-8 decoration-amber-500 dark:decoration-gray-200 font-bold">
             Reference Videos
             <span className="ml-2">:</span>
           </h1>
