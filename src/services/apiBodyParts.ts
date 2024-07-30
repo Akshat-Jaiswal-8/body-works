@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export interface IBodyPart {
   bodyPart: string;
@@ -6,8 +6,6 @@ export interface IBodyPart {
 }
 
 export const getBodyParts = async () => {
-  const bodyParts = await axios.get(
-    'https://body-works.vercel.app/api/bodyparts',
-  );
+  const bodyParts = await axios.get("https://body-works-api.up.railway.app/bodyParts");
   return bodyParts.data.data;
 };

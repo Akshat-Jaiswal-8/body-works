@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { IExercise } from './apiExercises.ts';
+import axios from "axios";
+import { IExercise } from "./apiExercises.ts";
 
 export const getTargetMuscle = async (
   targetMuscle: string | undefined,
@@ -7,7 +7,7 @@ export const getTargetMuscle = async (
   page: number,
 ): Promise<IExercise> => {
   const TargetMuscle = await axios.get(
-    `https://body-works.vercel.app/api/exercises?limit=${limit}&page=${page}&targetMuscle=${targetMuscle}`,
+    `https://body-works-api.up.railway.app/exercises?limit=${limit}&page=${page}&targetMuscle=${targetMuscle}`,
   );
   return TargetMuscle.data.data;
 };

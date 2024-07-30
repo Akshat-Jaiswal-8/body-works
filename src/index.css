@@ -49,7 +49,7 @@ html::-webkit-scrollbar-corner{
 }
 
 .workout-plan-markdown-content th:last-child {
-  @apply xs:px-1.5 sm:px-4 py-2 text-left items-center my-auto border-t border-dashed border-amber-900 dark:border-gray-700;
+  @apply xs:px-1.5 sm:px-4 py-2 text-left items-center my-auto border-t border-dashed border-amber-900 dark:border-gray-700 rounded-tr-2xl;
 }
 
 .workout-plan-markdown-content tr:last-child {
@@ -64,8 +64,11 @@ html::-webkit-scrollbar-corner{
   @apply border-0;
 }
 
+.workout-plan-markdown-content th:first-child {
+  @apply !rounded-tl-2xl;
+}
 .workout-plan-markdown-content th{
-  @apply !border-t-0 dark:bg-gray-900 rounded-tl-2xl rounded-tr-2xl;
+  @apply !border-t-0 bg-amber-100 dark:bg-gray-900 ;
 }
 
 
