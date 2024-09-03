@@ -7,7 +7,7 @@ function Exercises() {
 
   return (
     <>
-      <div className="h-full relative">
+      <div className="h-full grid grid-cols-5 gap-4 justify-between">
         {!isSmallDevice && <Sidebar />}
         <MainExercises />
       </div>

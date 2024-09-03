@@ -1,4 +1,4 @@
-import { Card } from '@/ui/Card.tsx';
+import { Card } from "@/ui/Card.tsx";
 
 interface IEquipmentProp {
   name: string;
@@ -8,5 +8,5 @@ interface IEquipmentProp {
 export function EquipmentsCard(props: IEquipmentProp) {
   const name: string = props.name;
   const image: string = props.image;
-  return <Card name={name} image={image} path={'equipments'} />;
+  return <Card name={name} image={image} path={"equipments"} />;
 }

@@ -1,58 +1,116 @@
-import { Link } from 'react-router-dom';
-import { useMediaQuery } from '@uidotdev/usehooks';
+import { useMediaQuery } from "@uidotdev/usehooks";
+import { Button } from "@/components/ui/button.tsx";
+import { MoveRight } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export default Hero;
+function Hero(): React.ReactNode {
+  const isSmallDevice: boolean = useMediaQuery(
+    "only screen and (max-width : 767px)",
+  );
+  const headingVariants = {
+    hidden: { opacity: 0, x: 0, y: 40 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
 
-function Hero() {
-  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
+  const contentVariants = {
+    hidden: { opacity: 0, x: -40, y: 0 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
 
+  const imageVariants = {
+    hidden: { opacity: 0, x: 0, y: 50 },
+    visible: { opacity: 1, x: 0, y: 0 },
+  };
   return (
     <>
-      <div className=' xs:mt-32 md:mt-30 w-full relative md:flex items-center justify-center'>
-        <div className='container mx-auto items-center md:grid grid-cols-col-lg gap-4 justify-between'>
-          <div className=''>
-            <h1 className='xs:text-5xl sm:text-6xl md:text-5xl lg:text-[4em] xl:text-[5rem] font-extrabold mb-8'>
-              Push <span className={'text-amber-900 dark:text-pink-500'}> yourself harder</span> to become better
-              <span>
-                <img
-                  src={'/img.png'}
-                  className={
-                    'xs:w-[12rem] xs:h-12 xs:mt-4 sm:ml-4 sm:w-[16rem] sm:h-14 md:w-[16rem] md:mt-2 lg:w-[20rem] xl:h-16 xl:ml-4 inline rounded-2xl object-cover '
-                  }
-                  alt={'man with dumbell'}
+      <div className="w-[100vw] h-[100vh] relative md:flex items-center justify-center">
+        <div className="container mx-auto items-center md:grid grid-cols-col-lg gap-4 justify-between">
+          <div>
+            <motion.h1
+              variants={headingVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.1, delay: 0.25 }}
+              className="xs:text-5xl sm:text-6xl md:text-5xl lg:text-[4em] xl:text-[5rem] font-extrabold text-amber-700 dark:text-slate-300 mb-8"
+            >
+              Push
+              <span className={"text-amber-900 dark:text-pink-500"}>
+                {" "}
+                yourself harder{" "}
+              </span>
+              to become better
+              <span className="xs:w-[12rem] xs:h-12 xs:mt-4 sm:ml-4 sm:w-[16rem] sm:h-14 md:w-[16rem] md:mt-2 lg:w-[20rem] xl:h-16 xl:ml-4 inline-block rounded-2xl overflow-hidden">
+                <motion.img
+                  initial={{ scale: 1.25 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.1, delay: 1 }}
+                  src={"/img.png"}
+                  className="w-full h-full object-cover transition-transform duration-300"
+                  alt="man with dumbbell"
                 />
               </span>
-            </h1>
-            <div className='xs:mb-12 md:mb-16 text-left text-amber-800 font-semibold dark:text-gray-100 text-xl opacity-70 leading-10'>
-              <p>Are you lagging to find the best exercises for your muscles ?</p>
+            </motion.h1>
+            <motion.div
+              variants={contentVariants}
+              initial={"hidden"}
+              animate={"visible"}
+              transition={{ duration: 0.1, delay: 1 }}
+              className="xs:mb-12 md:mb-16 text-left text-amber-800 font-semibold dark:text-slate-300 text-xl leading-10"
+            >
+              <p>
+                Are you lagging to find the best exercises for your muscles ?
+              </p>
               <p>Now your wait is over with BodyWorks !</p>
               <p>Build your muscles with your favourite exercises!</p>
-            </div>
+            </motion.div>
 
-            <Link to={'/exercises'} className=' relative p-0.5 group font-semibold transition-all duration-300 '>
-              <span className='px-6 py-3 bg-gradient-to-br bg-amber-500 dark:bg-pink-500 group-hover:from-amber-700 group-hover:to-amber-400 dark:group-hover:from-pink-600 dark:group-hover:to-violet-500 rounded-xl transition-all duration-300'>
-                <span className='relative dark:text-gray-300 text-gray-600 transition-all duration-300'>
-                  Explore Now
-                </span>
-              </span>
-            </Link>
+            <motion.div
+              variants={contentVariants}
+              initial={"hidden"}
+              animate={"visible"}
+              transition={{ duration: 0.1, delay: 1 }}
+            >
+              <Button className="text-xl font-medium group bg-amber-700 hover:bg-amber-800 dark:bg-pink-700 dark:hover:bg-pink-800 text-slate-100 dark:text-slate-200 px-4 py-4 hover:scale-110 transform-gpu">
+                <Link to={"/exercises"}>
+                  <span className={"flex items-center justify-center gap-x-2"}>
+                    Explore for free{" "}
+                    <MoveRight
+                      className={"animate-bounce-right"}
+                      size={20}
+                      strokeWidth={2.5}
+                      absoluteStrokeWidth
+                    />
+                  </span>
+                </Link>
+              </Button>
+            </motion.div>
           </div>
           {!isSmallDevice && (
-            <div
+            <motion.div
+              variants={imageVariants}
+              initial={"hidden"}
+              animate={"visible"}
+              transition={{ duration: 0.2, delay: 0.8 }}
               className={
-                'md:h-[30rem] xl:h-[35rem] mx-auto shadow-2xl shadow-amber-600 dark:shadow-pink-600 rounded-2xl'
+                "md:h-[30rem] xl:h-[35rem] mx-auto shadow-2xl shadow-amber-600 dark:shadow-pink-600 rounded-2xl"
               }
             >
               <img
-                src={'/hero.webp'}
-                className={'md:h-[30rem] xl:h-[35rem] dark:grayscale rounded-2xl'}
-                loading={'eager'}
-                alt={'man with dumbell'}
+                src={"/hero.webp"}
+                className={
+                  "md:h-[30rem] xl:h-[35rem] dark:grayscale rounded-2xl"
+                }
+                loading={"eager"}
+                alt={"man with dumbell"}
               />
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
     </>
   );
 }
+
+export default Hero;

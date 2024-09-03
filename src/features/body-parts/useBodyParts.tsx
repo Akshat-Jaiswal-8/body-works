@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import { getBodyParts } from '../../services/apiBodyParts.ts';
+import { useQuery } from "@tanstack/react-query";
+import { getBodyParts } from "@/services/apiBodyParts.ts";
 
 export const useBodyParts = () => {
   const {
@@ -7,7 +7,7 @@ export const useBodyParts = () => {
     data: bodyParts,
     error,
   } = useQuery({
-    queryKey: ['body-parts'],
+    queryKey: ["body-parts"],
     queryFn: getBodyParts,
   });
   return { isLoading, bodyParts, error };

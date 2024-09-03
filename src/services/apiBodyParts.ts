@@ -6,6 +6,8 @@ export interface IBodyPart {
 }
 
 export const getBodyParts = async () => {
-  const bodyParts = await axios.get("https://body-works-api.up.railway.app/bodyParts");
+  const bodyParts = await axios.get(
+    "https://body-works-api.up.railway.app/bodyParts",
+  );
   return bodyParts.data.data;
 };

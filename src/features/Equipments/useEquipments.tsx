@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getEquipments } from "../../services/apiEquipments.ts";
+import { getEquipments } from "@/services/apiEquipments.ts";
 
 export const useEquipments = () => {
   const {

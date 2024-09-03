@@ -11,8 +11,17 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination.tsx";
 import { useState } from "react";
+import SearchBar from "@/ui/SearchBar.tsx";
+import { cn } from "@/utils/cn.ts";
+import { useSidebarStore } from "@/lib/store.ts";
 
 function MainExercises() {
+  const {
+    collapsed,
+  }: {
+    collapsed: boolean;
+  } = useSidebarStore((state) => state);
+
   const [page, setPage] = useState<number>(1);
 
   const {
@@ -38,8 +47,13 @@ function MainExercises() {
 
   return (
     <>
-      <div className="xs:mx-auto sm:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] xs:mt-[120px] md:mt-[80px] ">
-        {/*<SearchBar />*/}
+      <div
+        className={cn(
+          "xs:mx-auto sm:mx-12 xs:mt-[120px] md:mt-[100px] ",
+          collapsed ? "col-span-full" : "col-span-4",
+        )}
+      >
+        <SearchBar />
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full">
           {exercises.map((exercise: IExercise) => {
             return (
