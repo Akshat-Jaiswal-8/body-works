@@ -22,6 +22,19 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-corner{
   display: none;
 }
+
+@layer utilities {
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 .markdown-content {
   @apply p-4;
 }

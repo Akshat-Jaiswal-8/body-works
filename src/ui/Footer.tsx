@@ -8,11 +8,10 @@ export const Footer = (): React.ReactNode => {
         <FooterNavbar />
         <div
           className={
-            "flex items-center justify-center border-t border-t-slate-800 py-6 xs:text-xs md:text-xl text-slate-300"
-          }
-        >
-          © 2024 BodyWorks. Made with{" "}
-          <span className={"text-red-500 text-2xl px-2"}> ♥</span> by Akshat.
+            "flex items-center justify-center border-t border-t-slate-800 py-6 text-slate-300 xs:text-xs md:text-xl"
+          }>
+          © 2024 BodyWorks. Made with <span className={"px-2 text-2xl text-red-500"}> ♥</span> by
+          Akshat.
         </div>
       </section>
     </>

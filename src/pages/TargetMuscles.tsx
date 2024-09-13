@@ -1,16 +1,16 @@
-import { useMediaQuery } from '@uidotdev/usehooks';
-import Sidebar from '@/ui/Sidebar.tsx';
-import MainTargetMuscles from '@/features/TargetMuscle/MainTargetMuscles.tsx';
+import Sidebar from "@/ui/Sidebar.tsx";
+import MainTargetMuscles from "@/features/TargetMuscle/MainTargetMuscles.tsx";
+import { cn } from "@/lib/utils.ts";
 
 function TargetMuscles() {
-  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
   return (
     <>
-      <div className='w-full h-full'>
-        {!isSmallDevice && <Sidebar />}
+      <div className={cn("flex max-h-svh pt-[4rem]")}>
+        <Sidebar />
         <MainTargetMuscles />
       </div>
     </>
   );
 }
+
 export default TargetMuscles;

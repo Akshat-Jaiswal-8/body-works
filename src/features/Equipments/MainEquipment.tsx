@@ -1,17 +1,20 @@
-import { IExercise } from '@/services/apiExercises.ts';
-import EquipmentCard from './EquipmentCard.tsx';
-import Spinner from '@/ui/Spinner.tsx';
-import Error from '@/pages/Error.tsx';
-import { useEquipment } from '@/features/Equipments/useEquipment.tsx';
-import { useParams } from 'react-router-dom';
+import { IExercise } from "@/services/apiExercises.ts";
+import EquipmentCard from "./EquipmentCard.tsx";
+import Spinner from "@/ui/Spinner.tsx";
+import Error from "@/pages/Error.tsx";
+import { useEquipment } from "@/features/Equipments/useEquipment.tsx";
+import { useParams } from "react-router-dom";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination.tsx';
-import { useState } from 'react';
+} from "@/components/ui/pagination.tsx";
+import { useState } from "react";
+import SearchBar from "@/ui/SearchBar.tsx";
+import { cn } from "@/lib/utils.ts";
+import { useSidebarStore } from "@/lib/store.ts";
 
 function MainEquipment() {
   const { equipment } = useParams();
@@ -22,6 +25,12 @@ function MainEquipment() {
   }: {
     Equipment: IExercise | undefined;
   } = useEquipment(equipment, limit, page);
+
+  const {
+    collapsed,
+  }: {
+    collapsed: boolean;
+  } = useSidebarStore((state) => state);
 
   const {
     isLoading,
@@ -44,9 +53,19 @@ function MainEquipment() {
 
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        {/*<SearchBar />*/}
-        <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
+      <div
+        className={cn(
+          "relative mt-10 h-full w-full overflow-x-hidden",
+          collapsed ? "lg:ml-[5rem]" : "ml-[20rem]",
+        )}>
+        <SearchBar />
+        <div
+          className={cn(
+            "w-full",
+            collapsed
+              ? "lg:grid lg:grid-cols-3 2xl:grid-cols-4"
+              : "lg:grid lg:grid-cols-2 2xl:grid-cols-3",
+          )}>
           {Object(Equipment)?.map((Equipment: IExercise) => {
             return (
               <EquipmentCard

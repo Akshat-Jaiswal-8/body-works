@@ -6,21 +6,33 @@ import ReactPlayer from "react-player";
 import "./customScrollbar.css";
 import Spinner from "@/ui/Spinner.tsx";
 import Error from "@/pages/Error.tsx";
+import { cn } from "@/lib/utils.ts";
+import { useSidebarStore } from "@/lib/store.ts";
+import { Footer } from "@/ui/Footer.tsx";
 
 function MainExerciseContent() {
   const { exerciseId } = useParams();
   const { exercise, isLoading, error } = useExercise(exerciseId);
+  const {
+    collapsed,
+  }: {
+    collapsed: boolean;
+  } = useSidebarStore((state) => state);
 
   if (isLoading) return <Spinner />;
   if (error) return <Error />;
 
   return (
     <>
-      <div className="lg:w-[calc(100vw-20rem)] mt-[80px] md:ml-[19.5rem] my-6">
-        <div className="lg:grid lg:grid-cols-2 gap-5 justify-center mt-16 xs:mx-6 xs:mb-20 md:mb-20 lg:mb-28">
-          <div className="col-span-1 gap-16 xs:py-6 md:py-12 border-double border-amber-900 dark:border-pink-500 border-b border-t">
+      <div
+        className={cn(
+          "container relative mt-10 h-full w-full overflow-x-hidden",
+          collapsed ? "lg:ml-[5rem]" : "ml-[20rem]",
+        )}>
+        <div className="mt-16 justify-center gap-5 xs:mx-6 xs:mb-20 md:mb-20 lg:mb-28 lg:grid lg:grid-cols-2">
+          <div className="col-span-1 gap-16 border-b border-t border-double border-amber-900 dark:border-pink-500 xs:py-6 md:py-12">
             <div className="flex flex-col md:gap-4 lg:gap-8">
-              <h1 className="bg-clip-text text-transparent bg-gradient-to-r dark:from-pink-500 dark:to-violet-700 from-amber-800 to-amber-500 font-poppins mb-4 text-left xs:text-3xl md:text-4xl xl:text-5xl font-bold">
+              <h1 className="mb-4 bg-gradient-to-r from-amber-800 to-amber-500 bg-clip-text text-left font-poppins font-bold text-transparent dark:from-pink-500 dark:to-violet-700 xs:text-3xl md:text-4xl xl:text-5xl">
                 {exercise.title}
               </h1>
               <ExerciseHeaders title={"Target Muscle"} content={exercise.target} />
@@ -29,24 +41,23 @@ function MainExerciseContent() {
               <ExerciseHeaders title={"Muscle Worked"} content={exercise["muscles worked"]} />
             </div>
           </div>
-          <div className="lg:col-span-1 flex justify-between xs:my-10 lg:my-20 mx-auto">
+          <div className="mx-auto flex justify-between xs:my-10 lg:col-span-1 lg:my-20">
             <img
               loading={"lazy"}
               alt="exercise gif"
-              className=" rounded-3xl shadow shadow-amber-900/100 drop-shadow-2xl "
-              src={exercise.gifUrl}
-            ></img>
+              className="rounded-3xl shadow shadow-amber-900/100 drop-shadow-2xl"
+              src={exercise.gifUrl}></img>
           </div>
         </div>
-        <div className="xs:mx-6 mx-16 mb-12">
-          <h1 className="lg:text-3xl xs:text-xl text-amber-700 dark:text-gray-200 underline underline-offset-8 decoration-amber-500 dark:decoration-gray-200 font-bold">
+        <div className="mx-16 mb-12 xs:mx-6">
+          <h1 className="font-bold text-amber-700 underline decoration-amber-500 underline-offset-8 dark:text-gray-200 dark:decoration-gray-200 xs:text-xl lg:text-3xl">
             Reference Images
             <span className="ml-2">:</span>
           </h1>
-          <div className="overflow-x-scroll custom-scrollbar">
-            <div className="grid grid-cols-5 overflow-x-auto gap-5 xs:w-[350vw] md:w-[200vw] xl:w-[150vw] justify-between mb-10">
+          <div className="custom-scrollbar overflow-x-scroll">
+            <div className="mb-10 grid grid-cols-5 justify-between gap-5 overflow-x-auto xs:w-[350vw] md:w-[200vw] xl:w-[150vw]">
               {exercise.images.map((image: string) => (
-                <div key={image} className="px-4 mt-10">
+                <div key={image} className="mt-10 px-4">
                   <img
                     loading={"lazy"}
                     key={image}
@@ -59,28 +70,34 @@ function MainExerciseContent() {
             </div>
           </div>
         </div>
-        <div className="xs:mx-6 mx-16 mb-12">
-          <h1 className="lg:text-3xl xs:text-xl text-amber-700 dark:text-gray-200 underline underline-offset-8 decoration-amber-500 dark:decoration-gray-200 font-bold">
+        <div className="mx-16 mb-12 xs:mx-6">
+          <h1 className="font-bold text-amber-700 underline decoration-amber-500 underline-offset-8 dark:text-gray-200 dark:decoration-gray-200 xs:text-xl lg:text-3xl">
             Reference Videos
             <span className="ml-2">:</span>
           </h1>
-          <div className="overflow-x-scroll custom-scrollbar">
-            <div className="grid grid-cols-5 overflow-x-auto gap-10 xs:w-[350vw] md:w-[200vw] xl:w-[150vw] justify-between my-12">
+          <div className="custom-scrollbar overflow-x-scroll">
+            <div className="my-12 grid grid-cols-5 justify-between gap-10 overflow-x-auto xs:w-[350vw] md:w-[200vw] xl:w-[150vw]">
               {exercise.videos.map((video: string) => (
-                <ReactPlayer key={video} volume={100} width="100" height={250} url={video} controls></ReactPlayer>
+                <ReactPlayer
+                  key={video}
+                  volume={100}
+                  width="100"
+                  height={250}
+                  url={video}
+                  controls></ReactPlayer>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="text-left xs:mx-6 mb-16">
+        <div className="mb-16 text-left xs:mx-6">
           <div
-            className="[all-unset] dark:text-gray-200 text-amber-800 border rounded-2xl dark:border-gray-700 border-amber-700 p-4 markdown-content"
+            className="[all-unset] markdown-content rounded-2xl border border-amber-700 p-4 text-amber-800 dark:border-gray-700 dark:text-gray-200"
             dangerouslySetInnerHTML={{
               __html: markdownToHtml(exercise.blog),
-            }}
-          ></div>
+            }}></div>
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -108,7 +108,7 @@ export default {
       },
       animation: {
         "bounce-right": "bounce-right 1s infinite",
-        "spin-fast": "spin 500ms linear infinite",
+        "spin-fast": "spin 300ms linear infinite",
         "accordion-down": "accordion-down 0.2s ease-oherout",
         "accordion-up": "accordion-up 0.2s ease-out",
         scroll:

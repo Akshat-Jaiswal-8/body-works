@@ -1,17 +1,14 @@
-import MainRoutines from '@/features/routines/MainRoutines.tsx';
-import Sidebar from '@/ui/Sidebar.tsx';
-import { useMediaQuery } from '@uidotdev/usehooks';
+import React from "react";
+import MainRoutines from "@/features/routines/MainRoutines.tsx";
+import Sidebar from "@/ui/Sidebar.tsx";
+import { cn } from "@/lib/utils.ts";
 
-function Routines() {
-  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
-
+function Routines(): React.ReactNode {
   return (
-    <>
-      <div className='h-full'>
-        {!isSmallDevice && <Sidebar />}
-        <MainRoutines />
-      </div>
-    </>
+    <div className={cn("flex max-h-svh pt-[4rem]")}>
+      <Sidebar />
+      <MainRoutines />
+    </div>
   );
 }
 

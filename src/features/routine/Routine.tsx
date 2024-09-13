@@ -1,15 +1,13 @@
-import Sidebar from '../../ui/Sidebar.tsx';
+import { cn } from "@/lib/utils.ts";
+import Sidebar from "../../ui/Sidebar.tsx";
 
-import MainRoutineContent from './MainRoutineContent.tsx';
-import { useMediaQuery } from '@uidotdev/usehooks';
+import MainRoutineContent from "./MainRoutineContent.tsx";
 
 function Routine() {
-  const isSmallDevice = useMediaQuery('only screen and (max-width : 767px)');
-
   return (
     <>
-      <div className='h-full'>
-        {!isSmallDevice && <Sidebar />}
+      <div className={cn("flex max-h-svh pt-[4rem]")}>
+        <Sidebar />
         <MainRoutineContent />
       </div>
     </>

@@ -102,7 +102,7 @@ export const FeatureContent = ({
             <Tooltip>
               <TooltipTrigger>
                 <Link
-                  to={`${exercises ? "exercise" : equipments ? "/equipments" : bodyParts ? "/bodyParts" : targetMuscles ? "/target-muscles" : ""}`}
+                  to={`${exercises ? "exercises" : equipments ? "/equipments" : bodyParts ? "/body-parts" : targetMuscles ? "/target-muscle" : ""}`}
                 >
                   <CircleChevronRight
                     className={

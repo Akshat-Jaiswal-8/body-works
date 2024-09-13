@@ -1,19 +1,19 @@
 import { BiSearch } from "react-icons/bi";
-import { JSX, useState } from "react";
+import React, { useState } from "react";
 
-function SearchBar(): JSX.Element {
+function SearchBar(): React.ReactNode {
   const [searchQuery, setSearchQuery] = useState<string>("");
   return (
     <>
-      <div className={"xs:mx-8 sm:mx-8"}>
-        <form className="px-4 xs:text-[1rem] md:text-xl rounded-xl border border-border-light-primary-color dark:border-gray-700 text-center flex items-center justify-between">
+      <div className={"mx-auto w-1/2 items-center justify-center"}>
+        <form className="flex items-center justify-between rounded-lg border border-border-light-primary-color px-4 text-center dark:border-gray-700 xs:text-[1rem] md:text-lg">
           <input
             placeholder="Search by name"
-            className="text-amber-700  bg-transparent dark:text-pink-500 font-poppins focus:outline-none overflow-x-scroll rounded-xl py-3 w-3/4"
+            className="w-3/4 overflow-x-scroll rounded-xl bg-transparent py-3 font-poppins text-amber-700 focus:outline-none dark:text-pink-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <span className="text-amber-900 dark:text-pink-500 xs:text-[1rem] md:text-xl cursor-pointer">
+          <span className="cursor-pointer text-amber-900 dark:text-pink-500 xs:text-[1rem] md:text-xl">
             <BiSearch />
           </span>
         </form>
@@ -21,5 +21,4 @@ function SearchBar(): JSX.Element {
     </>
   );
 }
-
 export default SearchBar;

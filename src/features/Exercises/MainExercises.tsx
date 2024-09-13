@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/pagination.tsx";
 import { useState } from "react";
 import SearchBar from "@/ui/SearchBar.tsx";
-import { cn } from "@/utils/cn.ts";
+import { cn } from "@/lib/utils";
 import { useSidebarStore } from "@/lib/store.ts";
+import { Footer } from "@/ui/Footer.tsx";
 
 function MainExercises() {
   const {
@@ -49,23 +50,30 @@ function MainExercises() {
     <>
       <div
         className={cn(
-          "xs:mx-auto sm:mx-12 xs:mt-[120px] md:mt-[100px] ",
-          collapsed ? "col-span-full" : "col-span-4",
-        )}
-      >
+          "relative mt-10 h-full w-full overflow-x-hidden",
+          collapsed ? "lg:ml-[5rem]" : "ml-[20rem]",
+        )}>
         <SearchBar />
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full">
-          {exercises.map((exercise: IExercise) => {
-            return (
-              <ExerciseCard
-                id={exercise.id}
-                key={exercise.id}
-                gif={exercise.gifUrl}
-                title={exercise.title}
-                blog={exercise.blog}
-              />
-            );
-          })}
+        <div className={cn("no-scrollbar container w-full overflow-y-scroll pb-4")}>
+          <div
+            className={cn(
+              "w-full",
+              collapsed
+                ? "lg:grid lg:grid-cols-3 2xl:grid-cols-4"
+                : "lg:grid lg:grid-cols-2 2xl:grid-cols-3",
+            )}>
+            {exercises.map((exercise: IExercise) => {
+              return (
+                <ExerciseCard
+                  id={exercise.id}
+                  key={exercise.id}
+                  gif={exercise.gifUrl}
+                  title={exercise.title}
+                  blog={exercise.blog}
+                />
+              );
+            })}
+          </div>
         </div>
         <Pagination>
           <PaginationContent>
@@ -77,6 +85,7 @@ function MainExercises() {
             </PaginationItem>
           </PaginationContent>
         </Pagination>
+        <Footer />
       </div>
     </>
   );

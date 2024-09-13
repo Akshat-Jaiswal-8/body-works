@@ -51,7 +51,7 @@ export const Navbar = () => {
 
   return (
     <section>
-      <div className="flex justify-between items-center h-[3.5rem] bg-transparent backdrop-blur fixed w-full top-0 z-50 border-b border-b-amber-800 dark:border-b-gray-800 border-dotted xs:px-4 sm:px-8 py-4">
+      <div className="flex justify-between items-center h-[4rem] bg-transparent backdrop-blur fixed w-full top-0 z-50 border-b border-b-amber-800 dark:border-b-gray-800 border-dotted xs:px-4 sm:px-8 py-4">
         <Link
           to={"/"}
           className="flex items-center animate-pulse cursor-pointer "

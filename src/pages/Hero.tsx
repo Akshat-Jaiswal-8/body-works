@@ -24,16 +24,16 @@ function Hero(): React.ReactNode {
     visible: { opacity: 1, x: 0, y: 0 },
   };
   return (
-    <>
-      <div className="w-[100vw] h-[100vh] relative md:flex items-center justify-center">
-        <div className="container mx-auto items-center md:grid grid-cols-col-lg gap-4 justify-between">
+    <section className="">
+      <div className="h-full relative md:flex items-center justify-center">
+        <div className="container mx-auto mt-20 items-center md:grid grid-cols-col-lg gap-4 justify-between">
           <div>
             <motion.h1
               variants={headingVariants}
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.1, delay: 0.25 }}
-              className="xs:text-5xl sm:text-6xl md:text-5xl lg:text-[4em] xl:text-[5rem] font-extrabold text-amber-700 dark:text-slate-300 mb-8"
+              className="xs:text-5xl sm:text-6xl md:text-5xl xs:mt-20 lg:text-[4em] xl:text-[5rem] font-extrabold text-amber-700 dark:text-slate-300 mb-8"
             >
               Push
               <span className={"text-amber-900 dark:text-pink-500"}>
@@ -109,7 +109,7 @@ function Hero(): React.ReactNode {
           )}
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

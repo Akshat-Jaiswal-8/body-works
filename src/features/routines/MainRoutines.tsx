@@ -1,16 +1,20 @@
-import { useParams } from 'react-router-dom';
-import RoutineCard from './RoutineCard.tsx';
-import Spinner from '@/ui/Spinner.tsx';
-import Error from '@/pages/Error.tsx';
-import useRoutines from './useRoutines.tsx';
-import { useState } from 'react';
+import { useParams } from "react-router-dom";
+import RoutineCard from "./RoutineCard.tsx";
+import Spinner from "@/ui/Spinner.tsx";
+import Error from "@/pages/Error.tsx";
+import useRoutines from "./useRoutines.tsx";
+import React, { useState } from "react";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination.tsx';
+} from "@/components/ui/pagination.tsx";
+import { cn } from "@/lib/utils.ts";
+import SearchBar from "@/ui/SearchBar.tsx";
+import { useSidebarStore } from "@/lib/store.ts";
+import { Footer } from "@/ui/Footer.tsx";
 
 export interface IRoutine {
   category: string[];
@@ -32,9 +36,14 @@ export interface IRoutine {
   };
   id: number;
 }
-function MainRoutines() {
+function MainRoutines(): React.ReactNode {
+  const {
+    collapsed,
+  }: {
+    collapsed: boolean;
+  } = useSidebarStore((state) => state);
   const { routineName } = useParams<{ routineName?: string }>();
-  const searchName: string = (routineName ?? 'Workouts for men').replace(/ /g, '%20');
+  const searchName: string = (routineName ?? "Workouts for men").replace(/ /g, "%20");
   const [page, setPage] = useState(1);
   const limit = 9;
 
@@ -53,22 +62,32 @@ function MainRoutines() {
 
   return (
     <>
-      <div className='md:mx-12 md:w-[calc(100vw-20rem)] md:ml-[19.5rem] mt-[80px] my-6'>
-        {/*<SearchBar />*/}
-        <div className='grid lg:grid-cols-2 xl:grid-cols-3 mb-10 w-full'>
-          {routines.map((eachroutine: IRoutine) => {
-            return (
-              <RoutineCard
-                key={eachroutine.id}
-                id={eachroutine.id}
-                routine_title={eachroutine.routine.routine_title}
-                routine_description={eachroutine.routine.routine_description}
-                routine_imageUrl={eachroutine.routine.routine_imageUrl}
-              />
-            );
-          })}
+      <div
+        className={cn(
+          "relative mt-10 h-full w-full overflow-x-hidden",
+          collapsed ? "lg:ml-[5rem]" : "ml-[20rem]",
+        )}>
+        <SearchBar />
+        <div className={cn("no-scrollbar container w-full overflow-y-scroll pb-4")}>
+          <div
+            className={cn(
+              "w-full",
+              collapsed ? "lg:grid lg:grid-cols-3" : "lg:grid lg:grid-cols-2",
+            )}>
+            {routines.map((eachroutine: IRoutine) => {
+              return (
+                <RoutineCard
+                  key={eachroutine.id}
+                  id={eachroutine.id}
+                  routine_title={eachroutine.routine.routine_title}
+                  routine_description={eachroutine.routine.routine_description}
+                  routine_imageUrl={eachroutine.routine.routine_imageUrl}
+                />
+              );
+            })}
+          </div>
         </div>
-        <Pagination>
+        <Pagination className="my-4">
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious onClick={handlePreviousPage} />
@@ -78,6 +97,7 @@ function MainRoutines() {
             </PaginationItem>
           </PaginationContent>
         </Pagination>
+        <Footer />
       </div>
     </>
   );
