@@ -7,7 +7,7 @@ interface SidebarStoreProps {
 }
 
 export const useSidebarStore = create<SidebarStoreProps>((set) => ({
-  collapsed: false,
+  collapsed: true,
   onCollapse: () =>
     set(
       (): {

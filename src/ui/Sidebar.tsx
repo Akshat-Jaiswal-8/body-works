@@ -35,7 +35,7 @@ function Sidebar() {
     <>
       <aside
         className={cn(
-          "fixed h-svh border-r border-dotted border-border-light-primary-color transition-all duration-100 dark:border-gray-700 xs:hidden lg:block",
+          "fixed hidden h-svh border-r border-dotted border-border-light-primary-color transition-all duration-100 dark:border-gray-700 lg:block",
           collapsed ? "w-[5rem]" : "w-[20rem]",
         )}>
         <div className={cn("m-2", collapsed ? "text-center" : "text-end")}>
