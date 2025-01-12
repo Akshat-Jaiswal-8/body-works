@@ -1,5 +1,5 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { Home } from "@/ui/Home.tsx";
+import {Route, Routes, useLocation} from "react-router-dom";
+import {Home} from "@/ui/Home.tsx";
 import Transition from "@/Transition.tsx";
 import Exercises from "@/pages/Exercises.tsx";
 import Exercise from "@/pages/Exercise.tsx";
@@ -14,7 +14,7 @@ import Routines from "@/pages/Routines.tsx";
 import Routine from "@/features/routine/Routine.tsx";
 import PageNotFound from "@/pages/PageNotFound.tsx";
 import React from "react";
-import { AnimatePresence } from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 
 export const AnimatedRoutes = (): React.ReactNode => {
   const location = useLocation();
@@ -91,7 +91,7 @@ export const AnimatedRoutes = (): React.ReactNode => {
           path="/routine-category"
           element={
             <>
-              <Transition Component={<RoutineCategory />} />={" "}
+                <Transition Component={<RoutineCategory/>}/>
             </>
           }
         />
