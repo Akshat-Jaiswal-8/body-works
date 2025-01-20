@@ -1,13 +1,16 @@
-import axios from "axios";
+import { apiCaller } from "../../lib/apiCaller.ts";
 
-type IRoutinesProps = {
-  searchName: string;
-};
-const getRoutines = async ({ searchName }: IRoutinesProps, limit: number, page: number) => {
-  const routines = await axios.get(
-    `https://body-works-api.up.railway.app/routines?limit=${limit}&page=${page}&search=${searchName}`,
-  );
+export const getRoutines = async (
+  searchName: string | undefined,
+  limit: number,
+  page: number,
+): Promise<IRoutine[]> => {
+  const routines = await apiCaller.get<IRoutinesResponse>("routines", {
+    params: {
+      search: searchName,
+      limit,
+      page,
+    },
+  });
   return routines?.data?.finalData;
 };
-
-export { getRoutines };

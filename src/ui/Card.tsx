@@ -10,32 +10,19 @@ interface ICardProps {
 
 export const Card = ({ name, image, path, searchName }: ICardProps) => {
   return (
-    <div className={"hover:scale-110 transition-all duration-200"}>
-      <CardContainer className="xs:max-w-[14rem] sm:max-w-[30rem] md:max-w-[30rem] lg:max-w-[17rem] ">
-        <CardBody
-          className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.2] rounded-xl p-6 border
-       hover:-translate-y-6 transition-all duration-300 overflow-y-scroll scrollbar-hide mt-10 dark:border-gray-800 overflow-hidden shadow-lg shadow-amber-900 dark:shadow-pink-500"
-        >
-          <CardItem
-            translateZ="100"
-            rotateX={20}
-            rotateZ={-10}
-            className="w-full mt-4"
-          >
+    <div className={"transition-all duration-200 hover:scale-110"}>
+      <CardContainer className="xs:max-w-[15.5rem] sm:max-w-[30rem] md:max-w-[30rem] lg:max-w-[17rem]">
+        <CardBody className="group/card scrollbar-hide relative mt-10 overflow-hidden rounded-xl border border-black/[0.2] bg-gray-50 p-6 shadow-lg shadow-amber-900 transition-all duration-300 hover:-translate-y-6 dark:border-gray-800 dark:border-white/[0.2] dark:bg-black dark:shadow-pink-500 dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
+          <CardItem translateZ="100" rotateX={20} rotateZ={-10} className="mt-4 w-full">
             <img
               src={image}
-              height="1000"
-              width="1000"
-              className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-              alt="thumbnail"
+              className="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
+              alt={"photo"}
             />
           </CardItem>
 
-          <div className="flex justify-between items-center mt-6">
-            <CardItem
-              translateZ="50"
-              className="text-xl font-bold text-gray-800 dark:text-white"
-            >
+          <div className="mt-6 flex items-center justify-between">
+            <CardItem translateZ="50" className="text-xl font-bold text-gray-800 dark:text-white">
               {name}
             </CardItem>
             <a href={`/${path}/${searchName ? searchName : name}`}>
@@ -43,8 +30,7 @@ export const Card = ({ name, image, path, searchName }: ICardProps) => {
                 translateZ={20}
                 translateX={20}
                 as="button"
-                className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-              >
+                className="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black">
                 <BsArrowRight />
               </CardItem>
             </a>

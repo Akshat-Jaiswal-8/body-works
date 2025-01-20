@@ -1,15 +1,11 @@
-import { useSidebarStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
 const Spinner = () => {
-  const { collapsed } = useSidebarStore((state) => state);
-
   return (
     <div
       role="status"
       className={cn(
-        "fixed left-1/2 mt-[4rem] -translate-y-1/2 transform",
-        collapsed ? "translate-x-[calc(-50%+2.5rem)]" : "translate-x-[calc(-50%+10rem)]",
+        "fixed left-1/2 mt-[4rem] -translate-y-1/2 translate-x-[calc(-50%+10rem)] transform",
       )}>
       <svg
         aria-hidden="true"

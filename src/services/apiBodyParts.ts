@@ -1,13 +1,10 @@
-import axios from "axios";
+import { apiCaller } from "../../lib/apiCaller.ts";
 
-export interface IBodyPart {
-  bodyPart: string;
-  imageUrl: string;
-}
-
-export const getBodyParts = async () => {
-  const bodyParts = await axios.get(
-    "https://body-works-api.up.railway.app/bodyParts",
-  );
-  return bodyParts.data.data;
+export const getBodyParts = async (limit?: number): Promise<IBodyPartData> => {
+  const bodyParts = await apiCaller.get<IBodyPartData>("bodyParts", {
+    params: {
+      limit,
+    },
+  });
+  return bodyParts.data;
 };

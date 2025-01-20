@@ -7,7 +7,7 @@ import { Footer } from "@/ui/Footer.tsx";
 
 export const Home = (): React.ReactNode => {
   return (
-    <motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.div className={"container"} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <Hero />
       <Features />
       <UserTestimonials />

@@ -3,10 +3,9 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider.tsx";
-
 import { Navbar } from "@/ui/Navbar.tsx";
-
 import { AnimatedRoutes } from "@/components/AnimatedRoutes.tsx";
+import { Toaster } from "@/components/ui/toaster";
 
 function App() {
   const queryClient = new QueryClient({
@@ -25,6 +24,7 @@ function App() {
           <Navbar />
           <AnimatedRoutes />
         </BrowserRouter>
+        <Toaster />
         <Analytics />
       </ThemeProvider>
     </QueryClientProvider>

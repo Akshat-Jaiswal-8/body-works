@@ -1,9 +1,16 @@
-import axios from "axios";
-import { IExercise } from "./apiExercises.ts";
+import { apiCaller } from "../../lib/apiCaller.ts";
 
-export const getBodyPart = async (bodyPart: string | undefined, limit: number, page: number): Promise<IExercise> => {
-  const bodypart = await axios.get(
-    `https://body-works-api.up.railway.app/exercises?bodypart=${bodyPart}&limit=${limit}&page=${page}`,
-  );
+export const getBodyPart = async (
+  bodyPart: string | undefined,
+  limit: number,
+  page: number,
+): Promise<IExercise> => {
+  const bodypart = await apiCaller.get<IExerciseResponse>("exercises", {
+    params: {
+      bodyPart,
+      limit,
+      page,
+    },
+  });
   return bodypart.data.data;
 };

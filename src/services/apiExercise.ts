@@ -1,8 +1,13 @@
-import axios from "axios";
+import { apiCaller } from "../../lib/apiCaller.ts";
+import { toast } from "@/hooks/use-toast.ts";
 
-const getExercise = async (exerciseId: string | undefined) => {
-  const exercise = await axios.get(`https://body-works-api.up.railway.app/exercises/${exerciseId}`);
+export const getExercise = async (exerciseId: string | undefined): Promise<IExercise> => {
+  if (!exerciseId)
+    toast({
+      variant: "destructive",
+      title: "Exercise ID is required",
+      description: "Please provide an exercise ID",
+    });
+  const exercise = await apiCaller.get<IExerciseResponse>(`exercises/${exerciseId}`);
   return exercise.data.data;
 };
-
-export { getExercise };

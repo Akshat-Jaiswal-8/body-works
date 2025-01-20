@@ -9,7 +9,7 @@ function SearchBar(): React.ReactNode {
         <form className="flex items-center justify-between rounded-lg border border-border-light-primary-color px-4 text-center dark:border-gray-700 xs:text-[1rem] md:text-lg">
           <input
             placeholder="Search by name"
-            className="w-3/4 overflow-x-scroll rounded-xl bg-transparent py-3 font-poppins text-amber-700 focus:outline-none dark:text-pink-500"
+            className="overflow-x-scroll rounded-xl bg-transparent py-3 font-poppins text-amber-700 focus:outline-none dark:text-pink-500 xs:text-xs xs:placeholder:text-xs md:w-3/4 md:text-base md:placeholder:text-base"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

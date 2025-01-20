@@ -1,14 +1,6 @@
-import axios from 'axios';
+import { apiCaller } from "../../lib/apiCaller.ts";
 
-interface IRoutineCategory {
-  title: string;
-  imageUrl: string;
-}
-
-const getRoutineCategories = async () => {
-    const routineCategory = await axios.get(`https://body-works-api.up.railway.app/routines/filters`);
-    return routineCategory.data.data;
+export const getRoutineCategories = async (): Promise<IRoutineCategory[]> => {
+  const routineCategory = await apiCaller.get<IRoutineCategoryResponse>("routines/filters");
+  return routineCategory.data.data;
 };
-
-export { getRoutineCategories };
-export type { IRoutineCategory };
